@@ -6,6 +6,11 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.viewbinding.ViewBinding
 import com.yilin.mybase.ui.viewholder.BaseVBViewHolder
 
+/***
+ * @param T: Item Object
+ * @param VH: ViewHolder, you can call function of getBaseViewHolder if your adapter is sincerely simple.
+ * @param VB: ItemBinding
+ */
 abstract class BaseBindingAdapter<T, VH : BaseVBViewHolder, VB : ViewBinding>(
     compare: DiffUtil.ItemCallback<T>,
     onItemClickListener: OnItemClickListener? = null
