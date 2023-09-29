@@ -19,7 +19,7 @@ class RequestManager private constructor() {
     companion object {
         private const val TAG = "RequestManager"
 
-        val instance: RequestManager by lazy { RequestManager() }
+        val instance: RequestManager by lazy(LazyThreadSafetyMode.SYNCHRONIZED) { RequestManager() }
     }
 
     /***
