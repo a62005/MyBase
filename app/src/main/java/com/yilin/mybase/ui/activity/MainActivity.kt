@@ -1,6 +1,7 @@
-package com.yilin.mybase.ui
+package com.yilin.mybase.ui.activity
 
 import com.yilin.mybase.databinding.ActivityMainBinding
+import com.yilin.mybase.ui.activity.BaseActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

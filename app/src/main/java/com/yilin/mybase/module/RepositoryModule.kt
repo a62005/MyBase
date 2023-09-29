@@ -8,6 +8,8 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import javax.inject.Singleton
 
 @Module
@@ -17,7 +19,7 @@ class RepositoryModule {
     @Singleton
     @Provides
     fun provideRepository(room: MainRoom): MainRepository {
-        return MainRepository(provideLocalSource(room), provideRemoteSource())
+        return MainRepository(provideIoScope(), provideLocalSource(room), provideRemoteSource())
     }
 
     @Singleton
@@ -30,6 +32,12 @@ class RepositoryModule {
     @Provides
     fun provideLocalSource(room: MainRoom): MainLocalSource {
         return MainLocalSource(room.getRoomDao())
+    }
+
+    @Singleton
+    @Provides
+    fun provideIoScope(): CoroutineScope {
+        return CoroutineScope(Dispatchers.IO)
     }
 
 }

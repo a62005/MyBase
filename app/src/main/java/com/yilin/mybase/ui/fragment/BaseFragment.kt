@@ -1,4 +1,4 @@
-package com.yilin.mybase.ui
+package com.yilin.mybase.ui.fragment
 
 import android.os.Bundle
 import android.util.Log
@@ -7,6 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelStoreOwner
 import androidx.viewbinding.ViewBinding
 
 abstract class BaseFragment<T : ViewBinding> : Fragment() {
@@ -112,5 +115,9 @@ abstract class BaseFragment<T : ViewBinding> : Fragment() {
         _binding = null
         super.onDestroyView()
         Log.i(TAG, this.javaClass.simpleName + " onDestroyView ")
+    }
+
+    protected inline fun <reified VM : ViewModel> getViewModel(owner: ViewModelStoreOwner): VM {
+        return ViewModelProvider(owner)[VM::class.java]
     }
 }

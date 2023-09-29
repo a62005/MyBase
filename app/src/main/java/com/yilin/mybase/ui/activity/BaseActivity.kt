@@ -1,4 +1,4 @@
-package com.yilin.mybase.ui
+package com.yilin.mybase.ui.activity
 
 import android.content.Intent
 import android.content.res.Resources
@@ -7,6 +7,8 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.WindowCompat
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
 import com.yilin.mybase.R
 
@@ -91,5 +93,9 @@ abstract class BaseActivity<T : ViewBinding> : AppCompatActivity() {
             }
         }
         return res
+    }
+
+    protected inline fun <reified VM : ViewModel> getViewModel(): VM {
+        return ViewModelProvider(this)[VM::class.java]
     }
 }
