@@ -15,7 +15,7 @@ class PokemonListAdapter: BaseBindingAdapter<PokemonBean, PokemonViewHolder, Ite
         binding: ItemPokemonBinding,
         item: PokemonBean
     ) {
-
+        holder.init(item)
     }
 
     override fun createViewBinding(
