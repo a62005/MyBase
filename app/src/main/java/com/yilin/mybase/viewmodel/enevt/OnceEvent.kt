@@ -1,6 +1,6 @@
-package com.yilin.mybase.viewmodel
+package com.yilin.mybase.viewmodel.enevt
 
-class ApiEvent<out T>(private val content: T) {
+class OnceEvent<out T>(private val content: T) {
 
     var hasBeenHandled = false
         private set
