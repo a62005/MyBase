@@ -17,3 +17,4 @@ example分支有範例CODE
 4. Retrofit
 5. Gson
 6. Glide
+7. EventBus
