@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModel @Inject constructor(private val repository: MainRepository): ViewModel() {
+class HomeViewModel @Inject constructor(private val repository: MainRepository): ViewModel() {
 
     private val _onPokemonListListener = MutableLiveData<List<PokemonBean>>()
     val onPokemonListListener: LiveData<List<PokemonBean>> get() = _onPokemonListListener
