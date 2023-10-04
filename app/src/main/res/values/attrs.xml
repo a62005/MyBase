@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="AppItem">
+        <attr name="title" format="string" />
+        <attr name="titleHint" format="string" />
+        <!--        <attr name="content" format="string" />-->
+        <attr name="contentHint" format="string" />
+        <attr name="hideSuffixIcon" format="boolean" />
+        <attr name="prefixIcon" format="reference" />
+        <attr name="suffixIcon" format="reference" />
+        <attr name="isSwitchMode" format="boolean" />
+    </declare-styleable>
+
+</resources>

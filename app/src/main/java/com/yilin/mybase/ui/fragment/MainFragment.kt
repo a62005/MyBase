@@ -32,6 +32,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
     private fun initPage() {
         val mainPageResources = mutableListOf<PageResourceBean>().apply {
             add(PageResourceBean { PokemonListFragment.newInstance() })
+            add(PageResourceBean { UserFragment.newInstance() })
         }
         val pageAdapter = PageAdapter(
             childFragmentManager,

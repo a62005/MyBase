@@ -4,4 +4,8 @@
         android:id="@+id/tab_home"
         android:icon="@mipmap/ic_main_tab_home"
         android:title="@string/main_tab_title_home" />
+    <item
+        android:id="@+id/tab_user"
+        android:icon="@mipmap/ic_main_tab_profile"
+        android:title="@string/main_tab_title_profile" />
 </menu>
