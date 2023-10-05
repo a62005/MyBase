@@ -17,7 +17,11 @@ class MainLocalSource(private val mainDao: MainRoomDao) {
     private val gson: Gson by lazy { MyApp.instance.gson }
 
     fun insert(pokemonList: List<PokemonBean>) {
-        mainDao.insert(pokemonList)
+        pokemonList.onEach {
+            it.type = it.types.first()
+        }.apply {
+            mainDao.insert(this)
+        }
     }
 
     fun insert(item: MessageBean) {
@@ -28,7 +32,9 @@ class MainLocalSource(private val mainDao: MainRoomDao) {
         return mainDao.insert(item)
     }
 
-    fun getPokemonList() = mainDao.getPokemonList()
+    fun getPokemonTypeList() = mainDao.getPokemonTypeList()
+
+    fun getPokemonListByType(type: String) = mainDao.getPokemonListByType(type)
 
     fun updatePokemonFavorite(name: String, isFavorite: Boolean) =
         mainDao.updatePokemonFavorite(name, isFavorite)

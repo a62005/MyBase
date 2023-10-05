@@ -21,14 +21,18 @@ class MainRepository @Inject constructor(
         }
     }
 
-    suspend fun getPokemonList() = withContext(ioScope.coroutineContext) {
-        val data = mainLocalSource.getPokemonList()
+    suspend fun getPokemonTypeList() = withContext(ioScope.coroutineContext) {
+        val data = mainLocalSource.getPokemonTypeList()
         data.ifEmpty {
             val resp = mainRemoteSource.getPokemonList()
             resp.pokemonList.apply {
                 mainLocalSource.insert(this)
-            }
+            }.map { it.type }.toSet().toList()
         }
+    }
+
+    suspend fun getPokemonListByType(type: String) = withContext(ioScope.coroutineContext) {
+        mainLocalSource.getPokemonListByType(type)
     }
 
     fun updatePokemonFavorite(name: String, isFavorite: Boolean) {

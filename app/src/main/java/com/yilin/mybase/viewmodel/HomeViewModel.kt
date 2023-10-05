@@ -14,12 +14,21 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeViewModel @Inject constructor(private val repository: MainRepository) : ViewModel() {
 
+    private val _onPokemonTypeListListener = MutableLiveData<List<String>>()
+    val onPokemonTypeListListener: LiveData<List<String>> get() = _onPokemonTypeListListener
+
     private val _onPokemonListListener = MutableLiveData<List<PokemonBean>>()
     val onPokemonListListener: LiveData<List<PokemonBean>> get() = _onPokemonListListener
 
     init {
         viewModelScope.launch {
-            _onPokemonListListener.value = repository.getPokemonList()
+            _onPokemonTypeListListener.value = repository.getPokemonTypeList()
+        }
+    }
+
+    fun setPokemonListByType(type: String) {
+        viewModelScope.launch {
+            _onPokemonListListener.value = repository.getPokemonListByType(type)
         }
     }
 

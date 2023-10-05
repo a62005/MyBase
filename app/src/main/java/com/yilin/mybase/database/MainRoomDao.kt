@@ -18,8 +18,11 @@ interface MainRoomDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(item: CalendarNoteBean): Long
 
-    @Query("SELECT * FROM pokemon ORDER BY id")
-    fun getPokemonList(): List<PokemonBean>
+    @Query("SELECT DISTINCT type FROM pokemon ORDER BY id")
+    fun getPokemonTypeList(): List<String>
+
+    @Query("SELECT * FROM pokemon WHERE type LIKE :type ORDER BY id")
+    fun getPokemonListByType(type: String): List<PokemonBean>
 
     @Query("UPDATE pokemon SET isFavorite = :isFavorite WHERE name LIKE :name")
     fun updatePokemonFavorite(name: String, isFavorite: Boolean)
