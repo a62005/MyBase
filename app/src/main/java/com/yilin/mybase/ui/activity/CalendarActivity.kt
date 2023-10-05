@@ -8,13 +8,16 @@ import com.yilin.mybase.databinding.ActivityCalendarBinding
 import com.yilin.mybase.ui.adapter.BaseListAdapter
 import com.yilin.mybase.ui.adapter.CalendarNoteAdapter
 import com.yilin.mybase.ui.fragment.CalendarNoteAddFragment
+import com.yilin.mybase.ui.fragment.CalendarSelectorFragment
 import com.yilin.mybase.utils.DateUtil
 import com.yilin.mybase.view.callback.ItemTouchCallback
 import com.yilin.mybase.view.decoration.MyCalendarSelectedDecorator
 import com.yilin.mybase.view.decoration.MyCalendarSelectedNowDecorator
 import com.yilin.mybase.viewmodel.CalendarViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 
+@AndroidEntryPoint
 class CalendarActivity : BaseActivity<ActivityCalendarBinding>() {
 
     private val calendarViewModel: CalendarViewModel by lazy { getViewModel() }
@@ -33,6 +36,9 @@ class CalendarActivity : BaseActivity<ActivityCalendarBinding>() {
     }
 
     override fun initOnClick() {
+        binding.actionBar.setOnActionUpListener {
+            finish()
+        }
         binding.ivNoteAdd.setOnClickListener {
             CalendarNoteAddFragment.newInstance(supportFragmentManager, dateTime = getCurrentTime())
         }
@@ -115,15 +121,15 @@ class CalendarActivity : BaseActivity<ActivityCalendarBinding>() {
     private fun getCurrentTime(): Long = binding.mcv.selectedDate.date.time
 
     private fun showMonthSelector() {
-//        val year = binding.tvYear.text.toString().toInt()
-//        val month = binding.tvMonth.text.toString().toInt()
-//        val f = CalendarSelectorFragment.newInstance(supportFragmentManager, year, month, binding.clMonthYear.bottom)
-//        f.setMonthItemClickListener { y, m ->
-//            val c = Calendar.getInstance()
-//            c.set(y, m, 0, 0, 0)
-//            binding.mcv.setCurrentDate(c)
-//            setYearMonth(c)
-//        }
+        val year = binding.tvYear.text.toString().toInt()
+        val month = binding.tvMonth.text.toString().toInt()
+        val f = CalendarSelectorFragment.newInstance(supportFragmentManager, year, month, binding.clMonthYear.bottom)
+        f.setMonthItemClickListener { y, m ->
+            val c = Calendar.getInstance()
+            c.set(y, m, 0, 0, 0)
+            binding.mcv.setCurrentDate(c)
+            setYearMonth(c)
+        }
     }
 
     override fun onPause() {

@@ -9,11 +9,13 @@ import com.yilin.mybase.R
 import com.yilin.mybase.bean.CalendarNoteBean
 import com.yilin.mybase.utils.DateUtil
 import com.yilin.mybase.viewmodel.respository.MainRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.util.*
 import javax.inject.Inject
 
+@HiltViewModel
 class CalendarNoteAddViewModel @Inject constructor(
     private val repository: MainRepository,
     application: Application

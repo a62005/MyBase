@@ -10,14 +10,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <com.yilin.mybase.view.AppActionBar
+            android:id="@+id/action_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_month_year"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
             android:paddingTop="20dp"
             android:paddingBottom="16dp"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
@@ -33,9 +39,9 @@
                 android:id="@+id/tv_month_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/calendar_month"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:text="@string/calendar_month"
                 app:layout_constraintStart_toEndOf="@id/tv_month"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -65,9 +71,9 @@
             android:background="@drawable/background_shadow_frame"
             android:padding="24dp"
             app:layout_constraintTop_toBottomOf="@id/cl_month_year"
+            app:mcv_selectionColor="@color/white"
             app:mcv_showOtherDates="all"
             app:mcv_tileHeight="36dp"
-            app:mcv_selectionColor="@color/white"
             app:mcv_weekDayTextAppearance="@style/MyCalendar" />
 
 

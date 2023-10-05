@@ -22,6 +22,9 @@ class UserFragment private constructor(): BaseFragment<FragmentUserBinding>() {
         binding.itemMessage.setOnClickListener {
             findNavController().navigate(MainFragmentDirections.actionMainFragmentToMessageFragment())
         }
+        binding.itemCalendar.setOnClickListener {
+            findNavController().navigate(MainFragmentDirections.actionMainFragmentToCalendarActivity())
+        }
     }
 
     override fun initViewData() {

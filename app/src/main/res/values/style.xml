@@ -42,4 +42,21 @@
         <item name="android:clickable">true</item>
         <item name="android:gravity">center</item>
     </style>
+
+    <style name="TopSheetDialog" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="android:windowSoftInputMode">adjustResize</item>
+        <item name="bottomSheetStyle">@style/TopSheetDialogStyleWrapper</item>
+        <item name="editTextStyle">@style/MyAppTheme.Edittext</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="buttonStyle">@style/MyAppTheme.BaseButton</item>
+    </style>
+
+    <style name="TopSheetDialogStyleWrapper" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/background_calendar_selector</item>
+    </style>
+
+    <style name="MyCalendarSelectorScroll">
+        <item name="android:windowEnterAnimation">@anim/slide_in_top</item>
+        <item name="android:windowExitAnimation">@anim/slide_out_top</item>
+    </style>
 </resources>
