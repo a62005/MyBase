@@ -20,6 +20,9 @@ interface MainRoomDao {
     @Query("SELECT * FROM pokemon ORDER BY id")
     fun getPokemonList(): List<PokemonBean>
 
+    @Query("UPDATE pokemon SET isFavorite = :isFavorite WHERE name LIKE :name")
+    fun updatePokemonFavorite(name: String, isFavorite: Boolean)
+
     @Query("SELECT COUNT (*) AS num FROM message_table COALESCE WHERE NOT isRead")
     fun loadMessageUnreadCount(): LiveData<Int>
 

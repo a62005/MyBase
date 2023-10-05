@@ -25,6 +25,8 @@ class MainLocalSource(private val mainDao: MainRoomDao) {
 
     fun getPokemonList() = mainDao.getPokemonList()
 
+    fun updatePokemonFavorite(name: String, isFavorite: Boolean) = mainDao.updatePokemonFavorite(name, isFavorite)
+
     fun loadMessageUnreadCount() = mainDao.loadMessageUnreadCount()
 
     fun getMessageList() = mainDao.getMessageList()

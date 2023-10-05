@@ -2,6 +2,7 @@ package com.yilin.mybase.viewmodel.respository
 
 import com.yilin.mybase.bean.message.MessageBean
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -14,7 +15,9 @@ class MainRepository @Inject constructor(
 ) {
 
     fun addMessage(messageBean: MessageBean) {
-        mainLocalSource.insert(messageBean)
+        ioScope.launch {
+            mainLocalSource.insert(messageBean)
+        }
     }
 
     suspend fun getPokemonList() = withContext(ioScope.coroutineContext) {
@@ -24,6 +27,12 @@ class MainRepository @Inject constructor(
             resp.pokemonList.apply {
                 mainLocalSource.insert(this)
             }
+        }
+    }
+
+    fun updatePokemonFavorite(name: String, isFavorite: Boolean) {
+        ioScope.launch {
+            mainLocalSource.updatePokemonFavorite(name, isFavorite)
         }
     }
 

@@ -8,10 +8,10 @@ object DateUtil {
         val c = Calendar.getInstance()
         c.time.time = System.currentTimeMillis()
         val year = c.get(Calendar.YEAR)
-        val month = c.get(Calendar.MONTH)
+        val month = c.get(Calendar.MONTH) + 1
         val day = c.get(Calendar.DAY_OF_MONTH)
         val hour = c.get(Calendar.HOUR_OF_DAY)
         val min = c.get(Calendar.MINUTE)
-        return "yyyy-MM-dd hh:mm".format(year, month, day, hour, min)
+        return "$year-$month-$day $hour:$min"
     }
 }
