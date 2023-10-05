@@ -1,5 +1,6 @@
 package com.yilin.mybase.ui.fragment
 
+import androidx.navigation.fragment.findNavController
 import com.yilin.mybase.databinding.FragmentMessageBinding
 import com.yilin.mybase.ui.adapter.MessageAdapter
 import com.yilin.mybase.viewmodel.MessageViewModel
@@ -15,7 +16,12 @@ class MessageFragment : BaseFragment<FragmentMessageBinding>() {
     }
 
     override fun initLayoutView() {
+    }
 
+    override fun initOnClick() {
+        binding.actionBar.setOnActionUpListener {
+            findNavController().navigateUp()
+        }
     }
 
     override fun initViewData() {
