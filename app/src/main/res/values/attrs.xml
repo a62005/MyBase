@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="AppItem">
+        <attr name="title" format="string" />
+        <attr name="titleHint" format="string" />
+        <!--        <attr name="content" format="string" />-->
+        <attr name="contentHint" format="string" />
+        <attr name="hideSuffixIcon" format="boolean" />
+        <attr name="prefixIcon" format="reference" />
+        <attr name="suffixIcon" format="reference" />
+        <attr name="isSwitchMode" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="AppActionBar">
+        <attr name="actionTitle" format="string" />
+        <attr name="actionContent" format="string" />
+        <attr name="hideActionUp" format="boolean" />
+        <attr name="actionUpIcon" format="reference" />
+        <attr name="actionSuffixIcon" format="reference" />
+        <attr name="actionPrefixIcon" format="reference" />
+    </declare-styleable>
+
+</resources>

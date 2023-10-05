@@ -6,9 +6,9 @@ example分支有範例CODE
 
 架構：
 1. Kotlin+MVVM
-2. BaseFragment、BaseActivity
-3. 使用RequestManager進行網路請求，輸入BaseRequest，回傳BaseResponse；reqeust須實作BaseRequest定義Service(Retrofit架構)
-4. Recycler.Adapter須實作BaseBindingAdapter
+2. BaseFragment、BaseActivity、BaseBottomSheetFragment
+3. RequestManager：實作BaseRequest，在其中定義param、使用的Service(Retrofit架構)與API，帶入rm唯一與外部接口fun sendReqeust，api完成後會回傳BaseResponse
+4. BaseBindingAdapter：仿照QuickAdapter加入ViewBinding，實作provide viewBinding、viewHolder與 convert
 
 技術：
 1. Navigation
@@ -18,3 +18,8 @@ example分支有範例CODE
 5. Gson
 6. Glide
 7. EventBus
+8. CalendarView
+
+CustomView：
+1. AppItem 用於重複出現的橫向item
+2. ActionBar 用於分頁頂部ActionBar

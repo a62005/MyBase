@@ -6,9 +6,12 @@ import androidx.room.*
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.yilin.mybase.MyApp
+import com.yilin.mybase.bean.CalendarNoteBean
+import com.yilin.mybase.bean.PokemonBean
+import com.yilin.mybase.bean.message.MessageBean
 
 @Database(
-    entities = [Test::class],
+    entities = [PokemonBean::class, MessageBean::class, CalendarNoteBean::class],
     version = 1,
     exportSchema = false
 )
@@ -26,19 +29,12 @@ abstract class MainRoom : RoomDatabase() {
 
         private fun buildDatabase(context: Context) = Room.databaseBuilder(
             context,
-            MainRoom::class.java, "zshl_main_room.db"
+            MainRoom::class.java, "main_room.db"
         ).build()
     }
 
     abstract fun getRoomDao(): MainRoomDao
 }
-
-@Entity(tableName = "test")
-data class Test(
-    @PrimaryKey(autoGenerate = true)
-    val id: Int = 0,
-    val title: String
-)
 
 object RoomConverters : Converters() {
 

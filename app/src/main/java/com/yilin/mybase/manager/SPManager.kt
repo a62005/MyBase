@@ -22,7 +22,6 @@ class SPManager private constructor() {
     }
 
 
-
     init {
         val filename = "my_base_sp"
         sp = MyApp.instance.getSharedPreferences(filename, Context.MODE_PRIVATE)

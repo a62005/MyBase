@@ -61,8 +61,8 @@ dependencies {
     implementation "com.google.dagger:hilt-android:$hilt_version"
     kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
 
-    implementation "androidx.navigation:navigation-fragment-ktx:2.6.0"
-    implementation "androidx.navigation:navigation-ui-ktx:2.6.0"
+    implementation "androidx.navigation:navigation-fragment-ktx:$navgation_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$navgation_version"
 
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2'
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.2'
@@ -78,4 +78,6 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.14.2'
 
     implementation 'org.greenrobot:eventbus:3.0.0'
+
+    implementation 'com.github.prolificinteractive:material-calendarview:1.6.0'
 }
