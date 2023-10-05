@@ -51,7 +51,7 @@ abstract class BaseActivity<T : ViewBinding> : AppCompatActivity() {
 
     protected abstract fun initViewData()
 
-    protected fun initOnClick() {}
+    protected open fun initOnClick() {}
 
     override fun onResume() {
         super.onResume()

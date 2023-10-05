@@ -1,5 +1,6 @@
 package com.yilin.mybase.viewmodel.respository
 
+import com.yilin.mybase.bean.CalendarNoteBean
 import com.yilin.mybase.bean.message.MessageBean
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
@@ -41,5 +42,31 @@ class MainRepository @Inject constructor(
     }
 
     fun loadMessageUnreadCount() = mainLocalSource.loadMessageUnreadCount()
+
+    fun addNote(note: CalendarNoteBean) {
+        ioScope.launch {
+            mainLocalSource.insert(note)
+        }
+    }
+
+    fun loadCalendarNoteDateList() = mainLocalSource.loadCalendarNoteDateList()
+
+    fun loadCalendarNoteList(dateTime: Long) = mainLocalSource.loadCalendarNoteList(dateTime)
+
+    fun deleteCalendarNote(noteId: Int) {
+        ioScope.launch {
+            mainLocalSource.delete(noteId)
+        }
+    }
+
+    suspend fun getCalendarNote(id: Int) = withContext(ioScope.coroutineContext) {
+        mainLocalSource.getCalendarNote(id)
+    }
+
+    fun update(item: CalendarNoteBean) {
+        ioScope.launch {
+            mainLocalSource.update(item)
+        }
+    }
 }
 

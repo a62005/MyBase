@@ -2,8 +2,13 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="red">#EB4033</color>
+    <color name="pink">#E29F99</color>
+    <color name="dark_pink">#E96560</color>
 
     <color name="color_background">#FFFFFFFF</color>
     <color name="color_light_blue">#20BAC5</color>
     <color name="color_light_gray">#BBBBBB</color>
+
+    <color name="color_edittext_hint">#A8A8A8</color>
 </resources>
