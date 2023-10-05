@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class MessageViewModel @Inject constructor(private val repository: MainRepository): ViewModel() {
+class MessageViewModel @Inject constructor(private val repository: MainRepository) : ViewModel() {
 
     private val _onMessageListListener = MutableLiveData<List<MessageBean>>()
     val onMessageListListener: LiveData<List<MessageBean>> get() = _onMessageListListener

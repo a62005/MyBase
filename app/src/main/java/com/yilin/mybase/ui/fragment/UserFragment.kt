@@ -3,7 +3,7 @@ package com.yilin.mybase.ui.fragment
 import androidx.navigation.fragment.findNavController
 import com.yilin.mybase.databinding.FragmentUserBinding
 
-class UserFragment private constructor(): BaseFragment<FragmentUserBinding>() {
+class UserFragment private constructor() : BaseFragment<FragmentUserBinding>() {
 
     companion object {
         fun newInstance(): UserFragment {

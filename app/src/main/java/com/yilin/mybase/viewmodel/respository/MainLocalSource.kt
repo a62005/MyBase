@@ -1,11 +1,11 @@
 package com.yilin.mybase.viewmodel.respository
 
 import com.google.gson.Gson
-import com.yilin.mybase.database.MainRoomDao
 import com.yilin.mybase.MyApp
 import com.yilin.mybase.bean.CalendarNoteBean
-import com.yilin.mybase.bean.message.MessageBean
 import com.yilin.mybase.bean.PokemonBean
+import com.yilin.mybase.bean.message.MessageBean
+import com.yilin.mybase.database.MainRoomDao
 import com.yilin.mybase.manager.SPManager
 import javax.inject.Singleton
 
@@ -30,7 +30,8 @@ class MainLocalSource(private val mainDao: MainRoomDao) {
 
     fun getPokemonList() = mainDao.getPokemonList()
 
-    fun updatePokemonFavorite(name: String, isFavorite: Boolean) = mainDao.updatePokemonFavorite(name, isFavorite)
+    fun updatePokemonFavorite(name: String, isFavorite: Boolean) =
+        mainDao.updatePokemonFavorite(name, isFavorite)
 
     fun loadMessageUnreadCount() = mainDao.loadMessageUnreadCount()
 

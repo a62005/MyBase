@@ -9,7 +9,7 @@ import com.yilin.mybase.ui.viewholder.BaseVBViewHolder
 
 class MessageAdapter : BaseBindingAdapter<MessageBean, BaseVBViewHolder, ItemMessageBinding>(
     MessageCompare()
-)  {
+) {
     override fun convertPlus(
         holder: BaseVBViewHolder,
         binding: ItemMessageBinding,

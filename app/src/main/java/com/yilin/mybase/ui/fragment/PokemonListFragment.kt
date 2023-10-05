@@ -2,14 +2,13 @@ package com.yilin.mybase.ui.fragment
 
 import android.view.View
 import com.yilin.mybase.databinding.FragmentPokemonListBinding
-import com.yilin.mybase.ui.adapter.BaseBindingAdapter
 import com.yilin.mybase.ui.adapter.BaseListAdapter
 import com.yilin.mybase.ui.adapter.PokemonListAdapter
 import com.yilin.mybase.viewmodel.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class PokemonListFragment private constructor(): BaseFragment<FragmentPokemonListBinding>() {
+class PokemonListFragment private constructor() : BaseFragment<FragmentPokemonListBinding>() {
 
     companion object {
         fun newInstance(): PokemonListFragment {

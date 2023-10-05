@@ -10,13 +10,13 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class CalendarViewModel @Inject constructor(private val repository: MainRepository): ViewModel() {
+class CalendarViewModel @Inject constructor(private val repository: MainRepository) : ViewModel() {
 
     private val _onNoteDateListener = MutableLiveData<Long>()
     val onNoteListListener: LiveData<List<CalendarNoteBean>>
         get() = _onNoteDateListener.switchMap {
-        repository.loadCalendarNoteList(it)
-    }
+            repository.loadCalendarNoteList(it)
+        }
 
     val onNoteDateListener: LiveData<List<Long>> get() = repository.loadCalendarNoteDateList()
 

@@ -101,7 +101,11 @@ class CalendarActivity : BaseActivity<ActivityCalendarBinding>() {
         val noteAdapter = CalendarNoteAdapter(onNoteDeleteListener) { adapter, index ->
             if (adapter is CalendarNoteAdapter) {
                 val note = adapter.currentList[index]
-                CalendarNoteAddFragment.newInstance(supportFragmentManager, note.id, getCurrentTime())
+                CalendarNoteAddFragment.newInstance(
+                    supportFragmentManager,
+                    note.id,
+                    getCurrentTime()
+                )
             }
         }
         binding.rvNote.adapter = noteAdapter
@@ -123,7 +127,12 @@ class CalendarActivity : BaseActivity<ActivityCalendarBinding>() {
     private fun showMonthSelector() {
         val year = binding.tvYear.text.toString().toInt()
         val month = binding.tvMonth.text.toString().toInt()
-        val f = CalendarSelectorFragment.newInstance(supportFragmentManager, year, month, binding.clMonthYear.bottom)
+        val f = CalendarSelectorFragment.newInstance(
+            supportFragmentManager,
+            year,
+            month,
+            binding.clMonthYear.bottom
+        )
         f.setMonthItemClickListener { y, m ->
             val c = Calendar.getInstance()
             c.set(y, m, 0, 0, 0)

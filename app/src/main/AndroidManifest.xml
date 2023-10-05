@@ -25,7 +25,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.activity.CalendarActivity"
+        <activity
+            android:name=".ui.activity.CalendarActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustNothing" />
     </application>

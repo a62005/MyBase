@@ -7,7 +7,7 @@ import com.yilin.mybase.databinding.ItemPokemonBinding
 import com.yilin.mybase.ui.compare.PokemonCompare
 import com.yilin.mybase.ui.viewholder.PokemonViewHolder
 
-class PokemonListAdapter: BaseBindingAdapter<PokemonBean, PokemonViewHolder, ItemPokemonBinding>(
+class PokemonListAdapter : BaseBindingAdapter<PokemonBean, PokemonViewHolder, ItemPokemonBinding>(
     PokemonCompare()
 ) {
     override fun convertPlus(

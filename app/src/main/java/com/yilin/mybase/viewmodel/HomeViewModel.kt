@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeViewModel @Inject constructor(private val repository: MainRepository): ViewModel() {
+class HomeViewModel @Inject constructor(private val repository: MainRepository) : ViewModel() {
 
     private val _onPokemonListListener = MutableLiveData<List<PokemonBean>>()
     val onPokemonListListener: LiveData<List<PokemonBean>> get() = _onPokemonListListener
@@ -25,11 +25,21 @@ class HomeViewModel @Inject constructor(private val repository: MainRepository):
 
     fun addFavorite(name: String) {
         repository.updatePokemonFavorite(name, true)
-        repository.addMessage(PokemonMessageBean(PokemonMessageBean.PokemonMessageEnum.ADD_FAVORITE, name))
+        repository.addMessage(
+            PokemonMessageBean(
+                PokemonMessageBean.PokemonMessageEnum.ADD_FAVORITE,
+                name
+            )
+        )
     }
 
     fun removeFavorite(name: String) {
         repository.updatePokemonFavorite(name, false)
-        repository.addMessage(PokemonMessageBean(PokemonMessageBean.PokemonMessageEnum.REMOVE_FAVORITE, name))
+        repository.addMessage(
+            PokemonMessageBean(
+                PokemonMessageBean.PokemonMessageEnum.REMOVE_FAVORITE,
+                name
+            )
+        )
     }
 }

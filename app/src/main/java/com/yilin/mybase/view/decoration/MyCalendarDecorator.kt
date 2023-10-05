@@ -11,7 +11,11 @@ import com.prolificinteractive.materialcalendarview.DayViewDecorator
 import com.prolificinteractive.materialcalendarview.DayViewFacade
 import com.yilin.mybase.R
 
-class MyCalendarSelectedDecorator(context: Context, currentTime: Long, private var dateList: List<Long>) : MyCalendarDecorator(context, currentTime) {
+class MyCalendarSelectedDecorator(
+    context: Context,
+    currentTime: Long,
+    private var dateList: List<Long>
+) : MyCalendarDecorator(context, currentTime) {
 
     override fun getBackground(): Int {
         return R.drawable.inset_calendar_seleted
@@ -27,7 +31,8 @@ class MyCalendarSelectedDecorator(context: Context, currentTime: Long, private v
     }
 }
 
-class MyCalendarSelectedNowDecorator(context: Context, currentTime: Long) : MyCalendarDecorator(context, currentTime) {
+class MyCalendarSelectedNowDecorator(context: Context, currentTime: Long) :
+    MyCalendarDecorator(context, currentTime) {
 
     override fun getBackground(): Int {
         return R.drawable.inset_calendar_current_seleted

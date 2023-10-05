@@ -8,10 +8,11 @@ import com.yilin.mybase.databinding.ItemCalendarSelectorMonthBinding
 import com.yilin.mybase.ui.compare.IntegerCompare
 import com.yilin.mybase.ui.viewholder.BaseVBViewHolder
 
-class CalendarMonthSelectorAdapter(onItemClickListener: OnItemClickListener) : BaseBindingAdapter<Int, BaseVBViewHolder, ItemCalendarSelectorMonthBinding>(
-    IntegerCompare(),
-    onItemClickListener
-) {
+class CalendarMonthSelectorAdapter(onItemClickListener: OnItemClickListener) :
+    BaseBindingAdapter<Int, BaseVBViewHolder, ItemCalendarSelectorMonthBinding>(
+        IntegerCompare(),
+        onItemClickListener
+    ) {
     private var defaultMonth = 0
     private var defaultYear = 0
     private var selectedYear = 0
@@ -22,11 +23,31 @@ class CalendarMonthSelectorAdapter(onItemClickListener: OnItemClickListener) : B
         item: Int
     ) {
         if (defaultYear == selectedYear && item == defaultMonth) {
-            binding.tvTitle.setBackgroundColor(ContextCompat.getColor(holder.itemView.context, R.color.color_light_blue))
-            binding.tvTitle.setTextColor(ContextCompat.getColor(holder.itemView.context, R.color.white))
+            binding.tvTitle.setBackgroundColor(
+                ContextCompat.getColor(
+                    holder.itemView.context,
+                    R.color.color_light_blue
+                )
+            )
+            binding.tvTitle.setTextColor(
+                ContextCompat.getColor(
+                    holder.itemView.context,
+                    R.color.white
+                )
+            )
         } else {
-            binding.tvTitle.setBackgroundColor(ContextCompat.getColor(holder.itemView.context, R.color.white))
-            binding.tvTitle.setTextColor(ContextCompat.getColor(holder.itemView.context, R.color.black))
+            binding.tvTitle.setBackgroundColor(
+                ContextCompat.getColor(
+                    holder.itemView.context,
+                    R.color.white
+                )
+            )
+            binding.tvTitle.setTextColor(
+                ContextCompat.getColor(
+                    holder.itemView.context,
+                    R.color.black
+                )
+            )
         }
         val month = "$item${holder.getString(R.string.calendar_month)}"
         binding.tvTitle.text = month
