@@ -12,7 +12,7 @@ import com.yilin.mybase.ui.fragment.CalendarSelectorFragment
 import com.yilin.mybase.utils.DateUtil
 import com.yilin.mybase.view.callback.ItemTouchCallback
 import com.yilin.mybase.view.decoration.MyCalendarSelectedDecorator
-import com.yilin.mybase.view.decoration.MyCalendarSelectedNowDecorator
+import com.yilin.mybase.view.decoration.MyCalendarCurrentSelectedDecorator
 import com.yilin.mybase.viewmodel.CalendarViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
@@ -23,7 +23,7 @@ class CalendarActivity : BaseActivity<ActivityCalendarBinding>() {
     private val calendarViewModel: CalendarViewModel by lazy { getViewModel() }
     private val itemTouchCallback: ItemTouchCallback by lazy { ItemTouchCallback() }
     private var calendarSelectedDecorator: MyCalendarSelectedDecorator? = null
-    private var calendarSelectedNowDecorator: MyCalendarSelectedNowDecorator? = null
+    private var calendarSelectedNowDecorator: MyCalendarCurrentSelectedDecorator? = null
 
     override fun getViewBinding(): ActivityCalendarBinding {
         return ActivityCalendarBinding.inflate(layoutInflater)
@@ -72,7 +72,7 @@ class CalendarActivity : BaseActivity<ActivityCalendarBinding>() {
         binding.mcv.setDateSelected(calendar, true)
         setYearMonth(calendar)
         calendarSelectedNowDecorator =
-            MyCalendarSelectedNowDecorator(this, todayTime)
+            MyCalendarCurrentSelectedDecorator(this, todayTime)
         calendarSelectedDecorator =
             MyCalendarSelectedDecorator(this, todayTime, emptyList())
         binding.mcv.addDecorator(calendarSelectedNowDecorator)

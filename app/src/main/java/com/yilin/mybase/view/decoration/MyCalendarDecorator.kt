@@ -11,6 +11,9 @@ import com.prolificinteractive.materialcalendarview.DayViewDecorator
 import com.prolificinteractive.materialcalendarview.DayViewFacade
 import com.yilin.mybase.R
 
+/***
+ * calendarView根據時間對應日期所顯示的badge
+ */
 class MyCalendarSelectedDecorator(
     context: Context,
     currentTime: Long,
@@ -31,7 +34,7 @@ class MyCalendarSelectedDecorator(
     }
 }
 
-class MyCalendarSelectedNowDecorator(context: Context, currentTime: Long) :
+class MyCalendarCurrentSelectedDecorator(context: Context, currentTime: Long) :
     MyCalendarDecorator(context, currentTime) {
 
     override fun getBackground(): Int {

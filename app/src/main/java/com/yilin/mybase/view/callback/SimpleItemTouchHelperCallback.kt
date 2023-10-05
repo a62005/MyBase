@@ -3,6 +3,9 @@ package com.yilin.mybase.view.callback
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 
+/**
+ * recyclerView item長按上下移動的callback
+ */
 open class SimpleItemTouchHelperCallback : ItemTouchHelper.Callback() {
 
     var adapter: ItemTouchAdapter? = null

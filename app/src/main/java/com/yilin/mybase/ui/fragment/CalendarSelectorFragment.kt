@@ -41,7 +41,7 @@ class CalendarSelectorFragment private constructor() : DialogFragment() {
             return f
         }
 
-        private val MONTH_LIST = listOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)
+        private val MONTH_LIST = (1..12).toList()
     }
 
     private lateinit var binding: FragmentCalendarSelectorBinding

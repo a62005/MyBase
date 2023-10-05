@@ -4,6 +4,11 @@
 
 example分支有範例CODE
 
+功能：
+1. 寶可夢清單: 依屬性分類，且有我的最愛功能
+2. 備忘錄: 與日曆搭配所做的noteList
+3. 通知中心: 就只是記錄行為
+
 架構：
 1. Kotlin+MVVM
 2. BaseFragment、BaseActivity
@@ -18,6 +23,7 @@ example分支有範例CODE
 5. Gson
 6. Glide
 7. EventBus
+8. CalendarView
 
 CustomView：
 1. AppItem 用於重複出現的橫向item
