@@ -1,8 +1,11 @@
 package com.yilin.mybase.ui.fragment
 
 import android.view.View
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.SimpleItemAnimator
 import com.yilin.mybase.databinding.FragmentHomeBinding
 import com.yilin.mybase.ui.adapter.BaseListAdapter
+import com.yilin.mybase.ui.adapter.PokemonListAdapter
 import com.yilin.mybase.ui.adapter.PokemonTypeAdapter
 import com.yilin.mybase.viewmodel.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -23,20 +26,35 @@ class HomeFragment private constructor() : BaseFragment<FragmentHomeBinding>() {
     }
 
     override fun initLayoutView() {
+        binding.rvPokemonType.itemAnimator?.let {
+            (it as SimpleItemAnimator).supportsChangeAnimations = false // 防止更新畫面閃爍
+        }
     }
 
-    override fun initViewData() {
-        binding.viewModel = homeViewModel
-        binding.lifecycleOwner = viewLifecycleOwner
-        val onItemClickListener = object : BaseListAdapter.OnItemClickListener {
+    private val onTypeItemClickListener: BaseListAdapter.OnItemClickListener
+        get() = object : BaseListAdapter.OnItemClickListener {
             override fun onItemClick(adapter: BaseListAdapter<*, *>, v: View, index: Int) {
                 if (adapter is PokemonTypeAdapter) {
+                    binding.rvPokemonType.smoothScrollToPosition(index)
                     val type = adapter.currentList[index]
                     homeViewModel.setPokemonListByType(type)
                 }
             }
         }
-        val adapter = PokemonTypeAdapter(onItemClickListener)
+
+    private val onPokemonClickListener: PokemonListAdapter.OnPokemonClickListener = object : PokemonListAdapter.OnPokemonClickListener {
+        override fun onFavoriteClick(id: String, isFavorite: Boolean) {
+        }
+
+        override fun onPokemonClick(id: String) {
+            findNavController().navigate(MainFragmentDirections.actionMainFragmentToPokemonDetailFragment(id))
+        }
+    }
+
+    override fun initViewData() {
+        binding.viewModel = homeViewModel
+        binding.lifecycleOwner = viewLifecycleOwner
+        val adapter = PokemonTypeAdapter(onTypeItemClickListener, onPokemonClickListener)
         binding.rvPokemonType.adapter = adapter
         homeViewModel.onPokemonTypeListListener.observe(viewLifecycleOwner) {
             adapter.submitList(it)

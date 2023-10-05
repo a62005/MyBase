@@ -7,7 +7,7 @@ import com.yilin.mybase.databinding.ItemPokemonTypeBinding
 import com.yilin.mybase.ui.compare.StringCompare
 import com.yilin.mybase.ui.viewholder.PokemonTypeViewHolder
 
-class PokemonTypeAdapter(onItemClickListener: OnItemClickListener) :
+class PokemonTypeAdapter(onItemClickListener: OnItemClickListener, private val onPokemonClickListener: PokemonListAdapter.OnPokemonClickListener) :
     BaseBindingAdapter<String, PokemonTypeViewHolder, ItemPokemonTypeBinding>(
         StringCompare(),
         onItemClickListener
@@ -49,7 +49,7 @@ class PokemonTypeAdapter(onItemClickListener: OnItemClickListener) :
         binding: ItemPokemonTypeBinding,
         viewType: Int
     ): PokemonTypeViewHolder {
-        return PokemonTypeViewHolder(binding)
+        return PokemonTypeViewHolder(binding, onPokemonClickListener)
     }
 
     fun setPokemonList(data: List<PokemonBean>) {

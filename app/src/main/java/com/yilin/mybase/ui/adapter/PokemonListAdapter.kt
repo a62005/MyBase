@@ -7,7 +7,7 @@ import com.yilin.mybase.databinding.ItemPokemonBinding
 import com.yilin.mybase.ui.compare.PokemonCompare
 import com.yilin.mybase.ui.viewholder.PokemonViewHolder
 
-class PokemonListAdapter : BaseBindingAdapter<PokemonBean, PokemonViewHolder, ItemPokemonBinding>(
+class PokemonListAdapter(private val onPokemonClickListener: OnPokemonClickListener) : BaseBindingAdapter<PokemonBean, PokemonViewHolder, ItemPokemonBinding>(
     PokemonCompare()
 ) {
     override fun convertPlus(
@@ -16,6 +16,9 @@ class PokemonListAdapter : BaseBindingAdapter<PokemonBean, PokemonViewHolder, It
         item: PokemonBean
     ) {
         holder.init(item)
+        binding.root.setOnClickListener {
+            onPokemonClickListener.onPokemonClick(item.id)
+        }
     }
 
     override fun createViewBinding(
@@ -28,5 +31,10 @@ class PokemonListAdapter : BaseBindingAdapter<PokemonBean, PokemonViewHolder, It
 
     override fun createViewHolder(binding: ItemPokemonBinding, viewType: Int): PokemonViewHolder {
         return PokemonViewHolder(binding)
+    }
+
+    interface OnPokemonClickListener {
+        fun onFavoriteClick(id: String, isFavorite: Boolean)
+        fun onPokemonClick(id: String)
     }
 }

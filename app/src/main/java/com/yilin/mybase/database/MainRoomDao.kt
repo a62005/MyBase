@@ -24,6 +24,9 @@ interface MainRoomDao {
     @Query("SELECT * FROM pokemon WHERE type LIKE :type ORDER BY id")
     fun getPokemonListByType(type: String): List<PokemonBean>
 
+    @Query("SELECT * FROM pokemon WHERE id LIKE :id")
+    fun getPokemonById(id: String): PokemonBean
+
     @Query("UPDATE pokemon SET isFavorite = :isFavorite WHERE name LIKE :name")
     fun updatePokemonFavorite(name: String, isFavorite: Boolean)
 

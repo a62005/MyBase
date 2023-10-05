@@ -36,6 +36,8 @@ class MainLocalSource(private val mainDao: MainRoomDao) {
 
     fun getPokemonListByType(type: String) = mainDao.getPokemonListByType(type)
 
+    fun getPokemonById(id: String) = mainDao.getPokemonById(id)
+
     fun updatePokemonFavorite(name: String, isFavorite: Boolean) =
         mainDao.updatePokemonFavorite(name, isFavorite)
 
