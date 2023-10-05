@@ -6,10 +6,11 @@ import androidx.room.*
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.yilin.mybase.MyApp
+import com.yilin.mybase.bean.MessageBean
 import com.yilin.mybase.bean.PokemonBean
 
 @Database(
-    entities = [PokemonBean::class],
+    entities = [PokemonBean::class, MessageBean::class],
     version = 1,
     exportSchema = false
 )

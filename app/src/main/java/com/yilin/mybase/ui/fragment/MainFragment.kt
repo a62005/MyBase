@@ -11,10 +11,13 @@ import androidx.viewpager2.widget.ViewPager2
 import com.yilin.mybase.bean.PageResourceBean
 import com.yilin.mybase.databinding.FragmentMainBinding
 import com.yilin.mybase.ui.adapter.PageAdapter
+import com.yilin.mybase.viewmodel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainFragment : BaseFragment<FragmentMainBinding>() {
+
+    private val mainViewModel: MainViewModel by lazy { getViewModel(this) }
 
     override fun getViewBinding(): FragmentMainBinding {
         return FragmentMainBinding.inflate(layoutInflater)
@@ -49,6 +52,15 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
         }
         binding.bnv.setOnItemReselectedListener {
             scrollToTop()
+        }
+        val profilePagePosition = binding.bnv.menu.size() - 1
+        val itemId = binding.bnv.menu.getItem(profilePagePosition).itemId
+        mainViewModel.onMessageListener.observe(viewLifecycleOwner) { count ->
+            if (count == 0) {
+                binding.bnv.removeBadge(itemId)
+            } else {
+                binding.bnv.getOrCreateBadge(itemId).number = count
+            }
         }
     }
 

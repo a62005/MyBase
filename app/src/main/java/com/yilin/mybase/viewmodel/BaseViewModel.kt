@@ -22,7 +22,7 @@ abstract class BaseViewModel : ViewModel() {
     }
 
     @Subscribe(threadMode = ThreadMode.BACKGROUND)
-    protected fun onEvent(event: MyEvent) {
+    protected open fun onEvent(event: MyEvent) {
 
     }
 

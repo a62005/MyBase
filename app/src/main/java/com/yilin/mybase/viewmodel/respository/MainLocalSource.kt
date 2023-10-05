@@ -3,6 +3,7 @@ package com.yilin.mybase.viewmodel.respository
 import com.google.gson.Gson
 import com.yilin.mybase.database.MainRoomDao
 import com.yilin.mybase.MyApp
+import com.yilin.mybase.bean.MessageBean
 import com.yilin.mybase.bean.PokemonBean
 import com.yilin.mybase.manager.SPManager
 import javax.inject.Singleton
@@ -18,6 +19,12 @@ class MainLocalSource(private val mainDao: MainRoomDao) {
         mainDao.insert(pokemonList)
     }
 
+    fun insert(item: MessageBean) {
+        mainDao.insert(item)
+    }
+
     fun getPokemonList() = mainDao.getPokemonList()
+
+    fun loadMessageUnreadCount() = mainDao.loadMessageUnreadCount()
 
 }

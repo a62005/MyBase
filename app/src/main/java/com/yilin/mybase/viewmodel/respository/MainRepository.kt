@@ -21,5 +21,7 @@ class MainRepository @Inject constructor(
             }
         }
     }
+
+    fun loadMessageUnreadCount() = mainLocalSource.loadMessageUnreadCount()
 }
 
