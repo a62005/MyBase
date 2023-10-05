@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.yilin.mybase.R
 import com.yilin.mybase.bean.CalendarNoteBean
+import com.yilin.mybase.bean.message.CalendarNoteMessageBean
 import com.yilin.mybase.utils.DateUtil
 import com.yilin.mybase.viewmodel.respository.MainRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -47,9 +48,11 @@ class CalendarNoteAddViewModel @Inject constructor(
             note.content = content
             note.dateTime = dateTime
             repository.update(note)
+            repository.addMessage(CalendarNoteMessageBean(CalendarNoteMessageBean.NoteMessageEnum.EDIT, dateTime, title))
         } ?: run {
             val note = CalendarNoteBean(title = title, content = content, dateTime = dateTime)
             repository.addNote(note)
+            repository.addMessage(CalendarNoteMessageBean(CalendarNoteMessageBean.NoteMessageEnum.ADD, dateTime, title))
         }
     }
 

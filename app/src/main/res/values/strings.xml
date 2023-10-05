@@ -5,8 +5,8 @@
     <string name="main_tab_title_profile">我的</string>
     <string name="profile_title_message">消息中心</string>
 
-    <string name="pokemon_add_to_favorite">已添加%s至我的最愛</string>
-    <string name="pokemon_remove_from_favorite">已從我的最愛移除%s</string>
+    <string name="pokemon_add_to_favorite">添加%s至我的最愛</string>
+    <string name="pokemon_remove_from_favorite">從我的最愛移除%s</string>
 
     <string name="calendar_title_note">備忘錄</string>
     <string name="calendar_title_note_empty">尚無備忘錄</string>
@@ -18,6 +18,9 @@
     <string name="calendar_note_btn_add">新增</string>
     <string name="calendar_note_btn_save">存檔</string>
     <string name="calendar_month">月</string>
+    <string name="calendar_add_note">在%s添加備忘錄:%s</string>
+    <string name="calendar_edit_note">編輯%s的備忘錄:%s</string>
+    <string name="calendar_remove_note">移除%s的備忘錄:%s</string>
 
     <string name="cancel">取消</string>
 </resources>
