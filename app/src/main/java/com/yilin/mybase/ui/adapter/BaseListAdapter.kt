@@ -13,10 +13,8 @@ abstract class BaseListAdapter<T, VH : RecyclerView.ViewHolder>(
 
     protected fun bindViewClickListener(holder: VH) {
         val view = holder.itemView
-        onItemClickListener?.let { listener ->
-            view.setOnClickListener {
-                listener.onItemClick(this, view, holder.adapterPosition)
-            }
+        view.setOnClickListener {
+            onItemClickListener?.onItemClick(this, view, holder.adapterPosition)
         }
     }
 

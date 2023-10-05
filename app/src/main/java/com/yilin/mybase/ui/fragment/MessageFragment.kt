@@ -1,6 +1,5 @@
 package com.yilin.mybase.ui.fragment
 
-import androidx.lifecycle.whenResumed
 import androidx.navigation.fragment.findNavController
 import com.yilin.mybase.databinding.FragmentMessageBinding
 import com.yilin.mybase.ui.adapter.MessageAdapter
@@ -23,6 +22,9 @@ class MessageFragment : BaseFragment<FragmentMessageBinding>() {
         binding.actionBar.setOnActionUpListener {
             findNavController().navigateUp()
         }
+        binding.tvRead.setOnClickListener {
+            messageViewModel.setAllRead()
+        }
     }
 
     override fun initViewData() {
@@ -30,7 +32,6 @@ class MessageFragment : BaseFragment<FragmentMessageBinding>() {
         binding.rvMessage.adapter = messageAdapter
         messageViewModel.onMessageListListener.observe(viewLifecycleOwner) {
             messageAdapter.submitList(it)
-            messageViewModel.setAllRead()
         }
     }
 }

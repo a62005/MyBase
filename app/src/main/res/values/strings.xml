@@ -23,4 +23,6 @@
     <string name="calendar_remove_note">移除%s的備忘錄:%s</string>
 
     <string name="cancel">取消</string>
+
+    <string name="message_all_read">全部已讀</string>
 </resources>
