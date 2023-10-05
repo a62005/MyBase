@@ -21,4 +21,11 @@ class MessageViewModel @Inject constructor(private val repository: MainRepositor
             _onMessageListListener.value = repository.getMessageList()
         }
     }
+
+    fun setAllRead() {
+        _onMessageListListener.value?.forEach {
+            it.isRead = true
+            repository.update(it)
+        }
+    }
 }

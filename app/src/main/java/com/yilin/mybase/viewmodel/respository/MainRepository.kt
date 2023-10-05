@@ -68,5 +68,11 @@ class MainRepository @Inject constructor(
             mainLocalSource.update(item)
         }
     }
+
+    fun update(item: MessageBean) {
+        ioScope.launch {
+            mainLocalSource.update(item)
+        }
+    }
 }
 

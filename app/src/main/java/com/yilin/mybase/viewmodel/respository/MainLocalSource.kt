@@ -47,6 +47,10 @@ class MainLocalSource(private val mainDao: MainRoomDao) {
         mainDao.update(item)
     }
 
+    fun update(item: MessageBean) {
+        mainDao.update(item)
+    }
+
     fun delete(id: Int) {
         mainDao.delete(id)
     }

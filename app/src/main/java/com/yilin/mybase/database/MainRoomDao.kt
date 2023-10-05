@@ -42,6 +42,9 @@ interface MainRoomDao {
     @Update
     fun update(item: CalendarNoteBean)
 
+    @Update
+    fun update(item: MessageBean)
+
     @Query("DELETE FROM note_table WHERE id LIKE :id")
     fun delete(id: Int)
 }
