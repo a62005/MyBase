@@ -12,5 +12,10 @@ data class PokemonBean(
     @SerializedName("typeofpokemon")
     val types: List<String>,
     var type: String = "",
+    @SerializedName("imageurl")
+    val imageUrl: String,
+    val attack: Int,
+    val defense: Int,
+    val speed: Int,
     var isFavorite: Boolean = false
 )

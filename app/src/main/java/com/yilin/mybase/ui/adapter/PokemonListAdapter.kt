@@ -19,6 +19,12 @@ class PokemonListAdapter(private val onPokemonClickListener: OnPokemonClickListe
         binding.root.setOnClickListener {
             onPokemonClickListener.onPokemonClick(item.id)
         }
+        binding.ivHeart.setOnClickListener {
+            val isFavorite = !item.isFavorite
+            item.isFavorite = isFavorite
+            holder.setFavorite(isFavorite)
+            onPokemonClickListener.onFavoriteClick(item.name, isFavorite)
+        }
     }
 
     override fun createViewBinding(
@@ -34,7 +40,7 @@ class PokemonListAdapter(private val onPokemonClickListener: OnPokemonClickListe
     }
 
     interface OnPokemonClickListener {
-        fun onFavoriteClick(id: String, isFavorite: Boolean)
+        fun onFavoriteClick(name: String, isFavorite: Boolean)
         fun onPokemonClick(id: String)
     }
 }

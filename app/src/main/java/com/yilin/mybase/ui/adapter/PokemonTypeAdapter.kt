@@ -21,7 +21,7 @@ class PokemonTypeAdapter(onItemClickListener: OnItemClickListener, private val o
         binding: ItemPokemonTypeBinding,
         item: String
     ) {
-        binding.btnType.text = item
+        holder.setType(item)
         if (holder.adapterPosition == selectedIndex) {
             holder.setAdapter(pokemonList)
         } else {

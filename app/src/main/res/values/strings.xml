@@ -7,6 +7,9 @@
 
     <string name="pokemon_add_to_favorite">添加%s至我的最愛</string>
     <string name="pokemon_remove_from_favorite">從我的最愛移除%s</string>
+    <string name="pokemon_set_atk">ATK %d</string>
+    <string name="pokemon_set_def">DEF %d</string>
+    <string name="pokemon_set_spd">SPD %d</string>
 
     <string name="calendar_title_note">備忘錄</string>
     <string name="calendar_title_note_empty">尚無備忘錄</string>
