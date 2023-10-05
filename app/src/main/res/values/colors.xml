@@ -5,4 +5,5 @@
 
     <color name="color_background">#FFFFFFFF</color>
     <color name="color_light_blue">#20BAC5</color>
+    <color name="color_light_gray">#BBBBBB</color>
 </resources>

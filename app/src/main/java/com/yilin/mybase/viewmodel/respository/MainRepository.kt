@@ -1,5 +1,6 @@
 package com.yilin.mybase.viewmodel.respository
 
+import com.yilin.mybase.bean.message.MessageBean
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
@@ -12,6 +13,10 @@ class MainRepository @Inject constructor(
     private val mainRemoteSource: MainRemoteSource
 ) {
 
+    fun addMessage(messageBean: MessageBean) {
+        mainLocalSource.insert(messageBean)
+    }
+
     suspend fun getPokemonList() = withContext(ioScope.coroutineContext) {
         val data = mainLocalSource.getPokemonList()
         data.ifEmpty {
@@ -20,6 +25,10 @@ class MainRepository @Inject constructor(
                 mainLocalSource.insert(this)
             }
         }
+    }
+
+    suspend fun getMessageList() = withContext(ioScope.coroutineContext) {
+        mainLocalSource.getMessageList()
     }
 
     fun loadMessageUnreadCount() = mainLocalSource.loadMessageUnreadCount()
