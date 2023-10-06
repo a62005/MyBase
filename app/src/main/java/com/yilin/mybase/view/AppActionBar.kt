@@ -3,6 +3,7 @@ package com.yilin.mybase.view
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import android.view.View
 import android.widget.LinearLayout
 import com.yilin.mybase.R
 import com.yilin.mybase.databinding.ItemAppActionBarBinding
@@ -47,6 +48,7 @@ class AppActionBar(context: Context, attrs: AttributeSet?) : LinearLayout(contex
         }
         ta.getDrawable(R.styleable.AppActionBar_actionSuffixIcon)?.let { actionSuffixIcon ->
             binding.llSuffix.visibility = VISIBLE
+            binding.ivSuffixIcon.visibility = VISIBLE
             binding.ivSuffixIcon.setImageDrawable(actionSuffixIcon)
         }
         ta.getDrawable(R.styleable.AppActionBar_actionPrefixIcon)?.let { actionPrefixIcon ->
@@ -55,6 +57,7 @@ class AppActionBar(context: Context, attrs: AttributeSet?) : LinearLayout(contex
             binding.ivPrefixIcon.setImageDrawable(actionPrefixIcon)
         }
         ta.getString(R.styleable.AppActionBar_actionContent)?.let { actionContent ->
+            binding.llSuffix.visibility = VISIBLE
             binding.tvSuffixContent.text = actionContent
         }
         ta.recycle()

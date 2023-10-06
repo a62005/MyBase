@@ -1,8 +1,10 @@
 package com.yilin.mybase.ui.fragment
 
 import androidx.navigation.fragment.findNavController
+import com.yilin.mybase.R
 import com.yilin.mybase.databinding.FragmentMessageBinding
 import com.yilin.mybase.ui.adapter.MessageAdapter
+import com.yilin.mybase.view.BottomSheetSelector
 import com.yilin.mybase.viewmodel.MessageViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -22,8 +24,17 @@ class MessageFragment : BaseFragment<FragmentMessageBinding>() {
         binding.actionBar.setOnActionUpListener {
             findNavController().navigateUp()
         }
-        binding.tvRead.setOnClickListener {
-            messageViewModel.setAllRead()
+        binding.actionBar.setOnSuffixClickListener {
+            val items = resources.getStringArray(R.array.message_more_item).toList()
+            BottomSheetSelector.Builder
+                .setContent(items)
+                .setItemClickListener {
+                    if (it == items.first()) {
+                        
+                    } else {
+
+                    }
+                }.build(childFragmentManager)
         }
     }
 

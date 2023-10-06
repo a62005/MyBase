@@ -14,6 +14,16 @@
         <item name="buttonStyle">@style/MyAppTheme.BaseButton</item>
     </style>
 
+    <style name="MyBottomSheetSelectorDialog" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/BottomSheetSelectorStyleWrapper</item>
+    </style>
+
+    <style name="BottomSheetSelectorStyleWrapper" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:paddingStart">6dp</item>
+        <item name="android:paddingEnd">6dp</item>
+    </style>
+
     <style name="BottomSheetStyleWrapper" parent="Widget.Design.BottomSheet.Modal">
         <item name="android:background">@drawable/background_bottom_sheet</item>
     </style>

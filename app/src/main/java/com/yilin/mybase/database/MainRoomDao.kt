@@ -33,7 +33,7 @@ interface MainRoomDao {
     @Query("SELECT COUNT (*) AS num FROM message_table COALESCE WHERE NOT isRead")
     fun loadMessageUnreadCount(): LiveData<Int>
 
-    @Query("SELECT * FROM message_table ORDER BY id")
+    @Query("SELECT * FROM message_table ORDER BY id DESC")
     fun getMessageList(): List<MessageBean>
 
     @Query("SELECT * FROM note_table WHERE id LIKE :id")

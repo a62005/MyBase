@@ -10,17 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:actionTitle="@string/profile_title_message"
+        app:actionContent="@string/message_more"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tv_read"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:text="@string/message_all_read"
-        app:layout_constraintBottom_toBottomOf="@id/action_bar"
-        app:layout_constraintEnd_toEndOf="@id/action_bar"
-        app:layout_constraintTop_toTopOf="@id/action_bar" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_message"
