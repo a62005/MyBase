@@ -4,13 +4,13 @@ import android.content.res.ColorStateList
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.yilin.mybase.R
-import com.yilin.mybase.bean.PokemonBean
+import com.yilin.mybase.bean.PokemonItemBean
 import com.yilin.mybase.databinding.ItemPokemonBinding
 import com.yilin.mybase.utils.ColorUtils
 
 class PokemonViewHolder(private val mBinding: ItemPokemonBinding) : BaseVBViewHolder(mBinding) {
 
-    fun init(item: PokemonBean) {
+    fun init(item: PokemonItemBean) {
         mBinding.tvId.text = item.id
         mBinding.tvName.text = item.name
         mBinding.tvAtk.text = getString(R.string.pokemon_set_atk).format(item.attack)

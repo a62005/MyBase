@@ -2,18 +2,19 @@ package com.yilin.mybase.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.yilin.mybase.bean.PokemonBean
+import com.yilin.mybase.bean.PokemonItemBean
 import com.yilin.mybase.databinding.ItemPokemonBinding
 import com.yilin.mybase.ui.compare.PokemonCompare
 import com.yilin.mybase.ui.viewholder.PokemonViewHolder
 
-class PokemonListAdapter(private val onPokemonClickListener: OnPokemonClickListener) : BaseBindingAdapter<PokemonBean, PokemonViewHolder, ItemPokemonBinding>(
-    PokemonCompare()
-) {
+class PokemonListAdapter(private val onPokemonClickListener: OnPokemonClickListener) :
+    BaseBindingAdapter<PokemonItemBean, PokemonViewHolder, ItemPokemonBinding>(
+        PokemonCompare()
+    ) {
     override fun convertPlus(
         holder: PokemonViewHolder,
         binding: ItemPokemonBinding,
-        item: PokemonBean
+        item: PokemonItemBean
     ) {
         holder.init(item)
         binding.root.setOnClickListener {

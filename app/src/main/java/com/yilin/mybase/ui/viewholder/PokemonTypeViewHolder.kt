@@ -2,7 +2,7 @@ package com.yilin.mybase.ui.viewholder
 
 import android.content.res.ColorStateList
 import androidx.recyclerview.widget.GridLayoutManager
-import com.yilin.mybase.bean.PokemonBean
+import com.yilin.mybase.bean.PokemonItemBean
 import com.yilin.mybase.databinding.ItemPokemonTypeBinding
 import com.yilin.mybase.ui.adapter.PokemonListAdapter
 import com.yilin.mybase.utils.ColorUtils
@@ -31,7 +31,7 @@ class PokemonTypeViewHolder(
         }
     }
 
-    fun setAdapter(data: List<PokemonBean>) {
+    fun setAdapter(data: List<PokemonItemBean>) {
         setDecoration()
         val adapter = PokemonListAdapter(onPokemonClickListener)
         mBinding.rvPokemon.adapter = adapter

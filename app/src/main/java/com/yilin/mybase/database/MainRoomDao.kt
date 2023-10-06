@@ -3,8 +3,9 @@ package com.yilin.mybase.database
 import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.yilin.mybase.bean.CalendarNoteBean
-import com.yilin.mybase.bean.PokemonBean
 import com.yilin.mybase.bean.MessageBean
+import com.yilin.mybase.bean.PokemonBean
+import com.yilin.mybase.bean.PokemonItemBean
 
 @Dao
 interface MainRoomDao {
@@ -21,8 +22,8 @@ interface MainRoomDao {
     @Query("SELECT DISTINCT type FROM pokemon ORDER BY id")
     fun getPokemonTypeList(): List<String>
 
-    @Query("SELECT * FROM pokemon WHERE type LIKE :type ORDER BY id")
-    fun getPokemonListByType(type: String): List<PokemonBean>
+    @Query("SELECT id, name, type, imageUrl, attack, defense, speed, isFavorite FROM pokemon WHERE type LIKE :type ORDER BY id")
+    fun getPokemonListByType(type: String): List<PokemonItemBean>
 
     @Query("SELECT * FROM pokemon WHERE id LIKE :id")
     fun getPokemonById(id: String): PokemonBean

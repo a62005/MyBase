@@ -2,19 +2,22 @@ package com.yilin.mybase.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.yilin.mybase.bean.PokemonBean
+import com.yilin.mybase.bean.PokemonItemBean
 import com.yilin.mybase.databinding.ItemPokemonTypeBinding
 import com.yilin.mybase.ui.compare.StringCompare
 import com.yilin.mybase.ui.viewholder.PokemonTypeViewHolder
 
-class PokemonTypeAdapter(onItemClickListener: OnItemClickListener, private val onPokemonClickListener: PokemonListAdapter.OnPokemonClickListener) :
+class PokemonTypeAdapter(
+    onItemClickListener: OnItemClickListener,
+    private val onPokemonClickListener: PokemonListAdapter.OnPokemonClickListener
+) :
     BaseBindingAdapter<String, PokemonTypeViewHolder, ItemPokemonTypeBinding>(
         StringCompare(),
         onItemClickListener
     ) {
 
     private var selectedIndex = -1
-    private var pokemonList = emptyList<PokemonBean>()
+    private var pokemonList = emptyList<PokemonItemBean>()
 
     override fun convertPlus(
         holder: PokemonTypeViewHolder,
@@ -52,7 +55,7 @@ class PokemonTypeAdapter(onItemClickListener: OnItemClickListener, private val o
         return PokemonTypeViewHolder(binding, onPokemonClickListener)
     }
 
-    fun setPokemonList(data: List<PokemonBean>) {
+    fun setPokemonList(data: List<PokemonItemBean>) {
         pokemonList = data
         val type = data.first().type
         val index = currentList.indexOf(type)

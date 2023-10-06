@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.yilin.mybase.bean.PokemonBean
+import com.yilin.mybase.bean.PokemonItemBean
 import com.yilin.mybase.factory.MessageFactory
 import com.yilin.mybase.viewmodel.respository.MainRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -17,8 +17,8 @@ class HomeViewModel @Inject constructor(private val repository: MainRepository) 
     private val _onPokemonTypeListListener = MutableLiveData<List<String>>()
     val onPokemonTypeListListener: LiveData<List<String>> get() = _onPokemonTypeListListener
 
-    private val _onPokemonListListener = MutableLiveData<List<PokemonBean>>()
-    val onPokemonListListener: LiveData<List<PokemonBean>> get() = _onPokemonListListener
+    private val _onPokemonListListener = MutableLiveData<List<PokemonItemBean>>()
+    val onPokemonListListener: LiveData<List<PokemonItemBean>> get() = _onPokemonListListener
 
     init {
         viewModelScope.launch {
