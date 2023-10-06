@@ -49,6 +49,8 @@ class MainRepository @Inject constructor(
         mainLocalSource.getMessageList()
     }
 
+    fun loadMessageList() = mainLocalSource.loadMessageList()
+
     fun loadMessageUnreadCount() = mainLocalSource.loadMessageUnreadCount()
 
     fun addNote(note: CalendarNoteBean) {
@@ -80,6 +82,12 @@ class MainRepository @Inject constructor(
     fun update(item: MessageBean) {
         ioScope.launch {
             mainLocalSource.update(item)
+        }
+    }
+
+    fun deleteMessage() {
+        ioScope.launch {
+            mainLocalSource.deleteMessage()
         }
     }
 }

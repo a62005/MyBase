@@ -1,5 +1,6 @@
 package com.yilin.mybase.ui.fragment
 
+import android.view.View
 import androidx.navigation.fragment.findNavController
 import com.yilin.mybase.R
 import com.yilin.mybase.databinding.FragmentMessageBinding
@@ -30,9 +31,9 @@ class MessageFragment : BaseFragment<FragmentMessageBinding>() {
                 .setContent(items)
                 .setItemClickListener {
                     if (it == items.first()) {
-                        
+                        messageViewModel.readAll()
                     } else {
-
+                        messageViewModel.deleteAll()
                     }
                 }.build(childFragmentManager)
         }
@@ -43,6 +44,17 @@ class MessageFragment : BaseFragment<FragmentMessageBinding>() {
         binding.rvMessage.adapter = messageAdapter
         messageViewModel.onMessageListListener.observe(viewLifecycleOwner) {
             messageAdapter.submitList(it)
+            setEmptyView(it.isEmpty())
+        }
+    }
+
+    private fun setEmptyView(isEmpty: Boolean) {
+        if (isEmpty) {
+            binding.tvEmpty.visibility = View.VISIBLE
+            binding.actionBar.hideSuffix()
+        } else {
+            binding.tvEmpty.visibility = View.GONE
+            binding.actionBar.showSuffix()
         }
     }
 }

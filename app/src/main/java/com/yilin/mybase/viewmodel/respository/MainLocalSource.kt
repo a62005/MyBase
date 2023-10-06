@@ -45,6 +45,8 @@ class MainLocalSource(private val mainDao: MainRoomDao) {
 
     fun getMessageList() = mainDao.getMessageList()
 
+    fun loadMessageList() = mainDao.loadMessageList()
+
     fun getCalendarNote(id: Int) = mainDao.getCalendarNote(id)
 
     fun loadCalendarNoteDateList() = mainDao.loadCalendarNoteDateList()
@@ -61,6 +63,10 @@ class MainLocalSource(private val mainDao: MainRoomDao) {
 
     fun delete(id: Int) {
         mainDao.delete(id)
+    }
+
+    fun deleteMessage() {
+        mainDao.delete()
     }
 
 }

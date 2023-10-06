@@ -36,6 +36,9 @@ interface MainRoomDao {
     @Query("SELECT * FROM message_table ORDER BY id DESC")
     fun getMessageList(): List<MessageBean>
 
+    @Query("SELECT * FROM message_table ORDER BY id DESC")
+    fun loadMessageList(): LiveData<List<MessageBean>>
+
     @Query("SELECT * FROM note_table WHERE id LIKE :id")
     fun getCalendarNote(id: Int): CalendarNoteBean?
 
@@ -53,4 +56,7 @@ interface MainRoomDao {
 
     @Query("DELETE FROM note_table WHERE id LIKE :id")
     fun delete(id: Int)
+
+    @Query("DELETE FROM message_table")
+    fun delete()
 }

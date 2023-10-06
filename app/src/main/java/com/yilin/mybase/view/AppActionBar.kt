@@ -36,6 +36,14 @@ class AppActionBar(context: Context, attrs: AttributeSet?) : LinearLayout(contex
         binding.tvSuffixContent.text = content
     }
 
+    fun hideSuffix() {
+        binding.llSuffix.visibility = View.GONE
+    }
+
+    fun showSuffix() {
+        binding.llSuffix.visibility = View.VISIBLE
+    }
+
     init {
         binding = ItemAppActionBarBinding.inflate(LayoutInflater.from(context), this, true)
         val ta = context.obtainStyledAttributes(attrs, R.styleable.AppActionBar)
