@@ -2,14 +2,11 @@ package com.yilin.mybase.ui.fragment
 
 import android.view.View
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.SimpleItemAnimator
 import com.yilin.mybase.databinding.FragmentHomeBinding
 import com.yilin.mybase.ui.adapter.BaseListAdapter
 import com.yilin.mybase.ui.adapter.PokemonListAdapter
 import com.yilin.mybase.ui.adapter.PokemonTypeAdapter
-import com.yilin.mybase.view.BottomSheetSelector
-import com.yilin.mybase.view.decoration.ItemDecoration
 import com.yilin.mybase.viewmodel.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -45,19 +42,24 @@ class HomeFragment private constructor() : BaseFragment<FragmentHomeBinding>() {
             }
         }
 
-    private val onPokemonClickListener: PokemonListAdapter.OnPokemonClickListener = object : PokemonListAdapter.OnPokemonClickListener {
-        override fun onFavoriteClick(name: String, isFavorite: Boolean) {
-            if (isFavorite) {
-                homeViewModel.addFavorite(name)
-            } else {
-                homeViewModel.removeFavorite(name)
+    private val onPokemonClickListener: PokemonListAdapter.OnPokemonClickListener =
+        object : PokemonListAdapter.OnPokemonClickListener {
+            override fun onFavoriteClick(id: String, name: String, isFavorite: Boolean) {
+                if (isFavorite) {
+                    homeViewModel.addFavorite(id, name)
+                } else {
+                    homeViewModel.removeFavorite(id, name)
+                }
+            }
+
+            override fun onPokemonClick(id: String) {
+                findNavController().navigate(
+                    MainFragmentDirections.actionMainFragmentToPokemonDetailFragment(
+                        id
+                    )
+                )
             }
         }
-
-        override fun onPokemonClick(id: String) {
-            findNavController().navigate(MainFragmentDirections.actionMainFragmentToPokemonDetailFragment(id))
-        }
-    }
 
     override fun initViewData() {
         binding.viewModel = homeViewModel

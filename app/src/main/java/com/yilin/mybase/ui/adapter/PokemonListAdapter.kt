@@ -23,7 +23,7 @@ class PokemonListAdapter(private val onPokemonClickListener: OnPokemonClickListe
             val isFavorite = !item.isFavorite
             item.isFavorite = isFavorite
             holder.setFavorite(isFavorite)
-            onPokemonClickListener.onFavoriteClick(item.name, isFavorite)
+            onPokemonClickListener.onFavoriteClick(item.id, item.name, isFavorite)
         }
     }
 
@@ -40,7 +40,7 @@ class PokemonListAdapter(private val onPokemonClickListener: OnPokemonClickListe
     }
 
     interface OnPokemonClickListener {
-        fun onFavoriteClick(name: String, isFavorite: Boolean)
+        fun onFavoriteClick(id: String, name: String, isFavorite: Boolean)
         fun onPokemonClick(id: String)
     }
 }

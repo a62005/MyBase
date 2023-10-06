@@ -1,4 +1,4 @@
-package com.yilin.mybase.bean.message
+package com.yilin.mybase.bean
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -8,7 +8,7 @@ import com.yilin.mybase.utils.DateUtil
 open class MessageBean(
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
-    val title: String,
+    val message: String,
     val date: String = DateUtil.getCurrentTime(),
     var isRead: Boolean = false
 )

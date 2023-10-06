@@ -1,7 +1,7 @@
 package com.yilin.mybase.viewmodel.respository
 
 import com.yilin.mybase.bean.CalendarNoteBean
-import com.yilin.mybase.bean.message.MessageBean
+import com.yilin.mybase.bean.MessageBean
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext

@@ -94,7 +94,7 @@ class CalendarActivity : BaseActivity<ActivityCalendarBinding>() {
             override fun onItemClick(adapter: BaseListAdapter<*, *>, v: View, index: Int) {
                 if (adapter is CalendarNoteAdapter) {
                     val note = adapter.currentList[index]
-                    calendarViewModel.deleteNote(note.id, note.title)
+                    calendarViewModel.deleteNote(note)
                 }
             }
         }

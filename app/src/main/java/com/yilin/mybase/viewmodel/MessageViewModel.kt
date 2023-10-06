@@ -2,7 +2,7 @@ package com.yilin.mybase.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import com.yilin.mybase.bean.message.MessageBean
+import com.yilin.mybase.bean.MessageBean
 import com.yilin.mybase.viewmodel.respository.MainRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject

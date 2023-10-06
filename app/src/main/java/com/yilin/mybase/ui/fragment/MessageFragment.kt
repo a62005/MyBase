@@ -51,12 +51,12 @@ class MessageFragment : BaseFragment<FragmentMessageBinding>() {
         val onItemClickListener = object : BaseListAdapter.OnItemClickListener {
             override fun onItemClick(adapter: BaseListAdapter<*, *>, v: View, index: Int) {
                 if (adapter is MessageAdapter) {
-                    val itemId = adapter.currentList[index].id
+                    val item = adapter.currentList[index]
                     val id = v.id
                     if (id == R.id.tv_delete) {
-                        messageViewModel.remove(itemId)
+                        messageViewModel.remove(item.id)
                     } else {
-                        messageViewModel.read(itemId)
+                        messageViewModel.read(item.id)
                     }
                 }
             }

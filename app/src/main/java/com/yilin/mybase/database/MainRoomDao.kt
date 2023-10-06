@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.yilin.mybase.bean.CalendarNoteBean
 import com.yilin.mybase.bean.PokemonBean
-import com.yilin.mybase.bean.message.MessageBean
+import com.yilin.mybase.bean.MessageBean
 
 @Dao
 interface MainRoomDao {

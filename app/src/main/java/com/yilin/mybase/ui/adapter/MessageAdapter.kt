@@ -2,7 +2,7 @@ package com.yilin.mybase.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.yilin.mybase.bean.message.MessageBean
+import com.yilin.mybase.bean.MessageBean
 import com.yilin.mybase.databinding.ItemMessageBinding
 import com.yilin.mybase.ui.compare.MessageCompare
 import com.yilin.mybase.ui.viewholder.MessageViewHolder
