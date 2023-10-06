@@ -1,5 +1,6 @@
 package com.yilin.mybase.ui.viewholder
 
+import android.content.res.ColorStateList
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.yilin.mybase.R
@@ -16,7 +17,7 @@ class PokemonViewHolder(private val mBinding: ItemPokemonBinding) : BaseVBViewHo
         mBinding.tvDef.text = getString(R.string.pokemon_set_def).format(item.defense)
         mBinding.tvSpd.text = getString(R.string.pokemon_set_spd).format(item.speed)
         Glide.with(itemView.context).load(item.imageUrl).into(mBinding.ivPokemon)
-        mBinding.root.setBackgroundColor(ColorUtils.getColor(item.type))
+        mBinding.root.backgroundTintList = ColorStateList.valueOf(ColorUtils.getColor(item.type))
         setFavorite(item.isFavorite)
     }
 
