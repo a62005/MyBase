@@ -57,8 +57,8 @@ class MainLocalSource(private val mainDao: MainRoomDao) {
         mainDao.update(item)
     }
 
-    fun update(item: MessageBean) {
-        mainDao.update(item)
+    fun setMessageRead(id: Int) {
+        mainDao.setMessageRead(id)
     }
 
     fun delete(id: Int) {
@@ -66,7 +66,11 @@ class MainLocalSource(private val mainDao: MainRoomDao) {
     }
 
     fun deleteMessage() {
-        mainDao.delete()
+        mainDao.deleteMessage()
+    }
+
+    fun deleteMessage(id: Int) {
+        mainDao.deleteMessage(id)
     }
 
 }

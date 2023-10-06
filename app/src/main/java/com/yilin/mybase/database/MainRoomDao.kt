@@ -48,15 +48,18 @@ interface MainRoomDao {
     @Query("SELECT DISTINCT dateTime FROM note_table")
     fun loadCalendarNoteDateList(): LiveData<List<Long>>
 
-    @Update
-    fun update(item: CalendarNoteBean)
+    @Query("UPDATE message_table SET isRead = true WHERE id LIKE :id")
+    fun setMessageRead(id: Int)
 
     @Update
-    fun update(item: MessageBean)
+    fun update(item: CalendarNoteBean)
 
     @Query("DELETE FROM note_table WHERE id LIKE :id")
     fun delete(id: Int)
 
     @Query("DELETE FROM message_table")
-    fun delete()
+    fun deleteMessage()
+
+    @Query("DELETE FROM message_table WHERE id LIKE :id")
+    fun deleteMessage(id: Int)
 }

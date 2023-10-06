@@ -79,15 +79,21 @@ class MainRepository @Inject constructor(
         }
     }
 
-    fun update(item: MessageBean) {
+    fun setMessageRead(id: Int) {
         ioScope.launch {
-            mainLocalSource.update(item)
+            mainLocalSource.setMessageRead(id)
         }
     }
 
     fun deleteMessage() {
         ioScope.launch {
             mainLocalSource.deleteMessage()
+        }
+    }
+
+    fun deleteMessage(id: Int) {
+        ioScope.launch {
+            mainLocalSource.deleteMessage(id)
         }
     }
 }

@@ -15,11 +15,19 @@ class MessageViewModel @Inject constructor(private val repository: MainRepositor
     fun readAll() {
         onMessageListListener.value?.forEach {
             it.isRead = true
-            repository.update(it)
+            repository.setMessageRead(it.id)
         }
     }
 
     fun deleteAll() {
         repository.deleteMessage()
+    }
+
+    fun read(id: Int) {
+        repository.setMessageRead(id)
+    }
+
+    fun remove(id: Int) {
+        repository.deleteMessage(id)
     }
 }
