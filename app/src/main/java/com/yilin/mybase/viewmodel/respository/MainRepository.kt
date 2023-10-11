@@ -39,6 +39,10 @@ class MainRepository @Inject constructor(
         mainLocalSource.getPokemonById(id)
     }
 
+    suspend fun getPokemonCount() = withContext(ioScope.coroutineContext) {
+        mainLocalSource.getPokemonCount()
+    }
+
     fun updatePokemonFavorite(name: String, isFavorite: Boolean) {
         ioScope.launch {
             mainLocalSource.updatePokemonFavorite(name, isFavorite)

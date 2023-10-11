@@ -18,6 +18,7 @@ data class PokemonBean(
     val defense: Int,
     val speed: Int,
     val total: Int,
+    val hp: Int,
     @SerializedName("xdescription")
     val description: String,
     val height: String,

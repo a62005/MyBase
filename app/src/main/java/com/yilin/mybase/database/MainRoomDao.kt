@@ -28,6 +28,9 @@ interface MainRoomDao {
     @Query("SELECT * FROM pokemon WHERE id LIKE :id")
     fun getPokemonById(id: String): PokemonBean
 
+    @Query("SELECT COUNT (*) FROM pokemon")
+    fun getPokemonCount(): Int
+
     @Query("UPDATE pokemon SET isFavorite = :isFavorite WHERE name LIKE :name")
     fun updatePokemonFavorite(name: String, isFavorite: Boolean)
 

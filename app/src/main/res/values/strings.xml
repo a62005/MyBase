@@ -10,6 +10,11 @@
     <string name="pokemon_set_atk">ATK %d</string>
     <string name="pokemon_set_def">DEF %d</string>
     <string name="pokemon_set_spd">SPD %d</string>
+    <string name="pokemon_set_total">TOTAL %d</string>
+    <string name="pokemon_set_hp">HP %d</string>
+    <string name="pokemon_set_height">HEIGHT %s</string>
+    <string name="pokemon_set_weight">WEIGHT %s</string>
+    <string name="pokemon_title_about">About</string>
 
     <string name="calendar_title_note">備忘錄</string>
     <string name="calendar_title_note_empty">尚無備忘錄</string>
