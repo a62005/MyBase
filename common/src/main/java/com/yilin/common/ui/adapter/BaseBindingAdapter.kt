@@ -1,10 +1,10 @@
-package com.yilin.mybase.ui.adapter
+package com.yilin.common.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.viewbinding.ViewBinding
-import com.yilin.mybase.ui.viewholder.BaseVBViewHolder
+import com.yilin.common.ui.viewholder.BaseVBViewHolder
 
 /***
  * @param T: Item Object

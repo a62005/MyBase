@@ -5,6 +5,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.SimpleItemAnimator
 import com.bumptech.glide.Glide
+import com.yilin.common.ui.fragment.BaseFragment
 import com.yilin.mybase.R
 import com.yilin.mybase.bean.PokemonBean
 import com.yilin.mybase.databinding.FragmentPokemonDetailBinding

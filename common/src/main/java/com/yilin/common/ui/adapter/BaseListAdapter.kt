@@ -1,4 +1,4 @@
-package com.yilin.mybase.ui.adapter
+package com.yilin.common.ui.adapter
 
 import android.view.View
 import androidx.recyclerview.widget.DiffUtil

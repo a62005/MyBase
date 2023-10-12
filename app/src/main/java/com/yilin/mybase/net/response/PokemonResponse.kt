@@ -1,6 +1,7 @@
 package com.yilin.mybase.net.response
 
 import com.google.gson.reflect.TypeToken
+import com.yilin.common.net.response.BaseResponse
 import com.yilin.mybase.MyApp
 import com.yilin.mybase.bean.PokemonBean
 

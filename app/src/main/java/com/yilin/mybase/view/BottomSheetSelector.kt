@@ -5,9 +5,9 @@ import android.view.View
 import androidx.fragment.app.FragmentManager
 import com.yilin.mybase.R
 import com.yilin.mybase.databinding.LayoutBottomSheetSelectorDialogBinding
-import com.yilin.mybase.ui.adapter.BaseListAdapter
+import com.yilin.common.ui.adapter.BaseListAdapter
 import com.yilin.mybase.ui.adapter.BottomSheetSelectorAdapter
-import com.yilin.mybase.ui.fragment.BaseBottomSheetFragment
+import com.yilin.common.ui.fragment.BaseBottomSheetFragment
 
 class BottomSheetSelector private constructor() :
     BaseBottomSheetFragment<LayoutBottomSheetSelectorDialogBinding>() {

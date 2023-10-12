@@ -1,4 +1,4 @@
-package com.yilin.mybase.ui.fragment
+package com.yilin.common.ui.fragment
 
 import android.os.Bundle
 import android.util.Log

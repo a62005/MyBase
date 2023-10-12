@@ -1,5 +1,6 @@
 package com.yilin.mybase.ui.viewholder
 
+import com.yilin.common.ui.viewholder.BaseVBViewHolder
 import com.yilin.mybase.bean.CalendarNoteBean
 import com.yilin.mybase.databinding.ItemCalendarNoteBinding
 import java.util.*

@@ -1,4 +1,4 @@
-package com.yilin.mybase.viewmodel.enevt
+package com.yilin.common.enevt
 
 data class MyEvent(
     val message: String

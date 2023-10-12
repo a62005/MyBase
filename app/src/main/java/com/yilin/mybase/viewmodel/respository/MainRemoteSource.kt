@@ -1,6 +1,6 @@
 package com.yilin.mybase.viewmodel.respository
 
-import com.yilin.mybase.net.RequestManager
+import com.yilin.common.net.RequestManager
 import com.yilin.mybase.net.request.PokemonRequest
 import com.yilin.mybase.net.response.PokemonResponse
 import javax.inject.Singleton

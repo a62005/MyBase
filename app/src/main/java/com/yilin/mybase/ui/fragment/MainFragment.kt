@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
+import com.yilin.common.ui.fragment.BaseFragment
 import com.yilin.mybase.bean.PageResourceBean
 import com.yilin.mybase.databinding.FragmentMainBinding
 import com.yilin.mybase.ui.adapter.PageAdapter

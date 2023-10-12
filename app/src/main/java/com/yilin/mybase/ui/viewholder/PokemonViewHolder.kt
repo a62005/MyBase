@@ -3,6 +3,7 @@ package com.yilin.mybase.ui.viewholder
 import android.content.res.ColorStateList
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
+import com.yilin.common.ui.viewholder.BaseVBViewHolder
 import com.yilin.mybase.R
 import com.yilin.mybase.bean.PokemonItemBean
 import com.yilin.mybase.databinding.ItemPokemonBinding

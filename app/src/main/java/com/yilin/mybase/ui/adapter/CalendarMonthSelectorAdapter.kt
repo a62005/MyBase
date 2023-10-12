@@ -2,6 +2,7 @@ package com.yilin.mybase.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import com.yilin.common.ui.adapter.BaseBindingAdapter
 import com.yilin.mybase.databinding.ItemCalendarSelectorMonthBinding
 import com.yilin.mybase.ui.compare.IntegerCompare
 import com.yilin.mybase.ui.viewholder.CalendarMonthSelectorViewHolder

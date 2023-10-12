@@ -1,4 +1,4 @@
-package com.yilin.mybase.net
+package com.yilin.common.net
 
 object ResultCode {
     const val RESULT_CODE_FAIL = 0

@@ -1,4 +1,4 @@
-package com.yilin.mybase.net
+package com.yilin.common.net
 
 sealed class ApiResult<out R> {
 

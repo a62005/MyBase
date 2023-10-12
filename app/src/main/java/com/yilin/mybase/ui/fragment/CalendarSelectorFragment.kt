@@ -9,7 +9,7 @@ import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
 import com.yilin.mybase.R
 import com.yilin.mybase.databinding.FragmentCalendarSelectorBinding
-import com.yilin.mybase.ui.adapter.BaseListAdapter
+import com.yilin.common.ui.adapter.BaseListAdapter
 import com.yilin.mybase.ui.adapter.CalendarMonthSelectorAdapter
 
 /***

@@ -1,6 +1,7 @@
 package com.yilin.mybase.ui.viewholder
 
 import androidx.core.content.ContextCompat
+import com.yilin.common.ui.viewholder.BaseVBViewHolder
 import com.yilin.mybase.R
 import com.yilin.mybase.bean.MessageBean
 import com.yilin.mybase.databinding.ItemMessageBinding

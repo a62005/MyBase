@@ -1,9 +1,8 @@
-package com.yilin.mybase.net
+package com.yilin.common.net
 
 import android.util.Log
-import com.yilin.mybase.net.request.BaseRequest
-import com.yilin.mybase.net.response.BaseResponse
-import com.yilin.mybase.net.service.RetrofitConverter
+import com.yilin.common.net.request.BaseRequest
+import com.yilin.common.net.response.BaseResponse
 import kotlinx.coroutines.suspendCancellableCoroutine
 import okhttp3.HttpUrl.Companion.toHttpUrl
 import okhttp3.OkHttpClient

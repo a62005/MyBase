@@ -3,8 +3,9 @@ package com.yilin.mybase.ui.fragment
 import android.view.View
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.SimpleItemAnimator
+import com.yilin.common.ui.fragment.BaseFragment
 import com.yilin.mybase.databinding.FragmentHomeBinding
-import com.yilin.mybase.ui.adapter.BaseListAdapter
+import com.yilin.common.ui.adapter.BaseListAdapter
 import com.yilin.mybase.ui.adapter.PokemonListAdapter
 import com.yilin.mybase.ui.adapter.PokemonTypeAdapter
 import com.yilin.mybase.viewmodel.HomeViewModel

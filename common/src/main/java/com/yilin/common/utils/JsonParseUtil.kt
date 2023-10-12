@@ -1,4 +1,4 @@
-package com.yilin.mybase.utils
+package com.yilin.common.utils
 
 import java.util.regex.Pattern
 

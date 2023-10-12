@@ -1,4 +1,4 @@
-package com.yilin.mybase.viewmodel.enevt
+package com.yilin.common.enevt
 
 class OnceEvent<out T>(private val content: T) {
 

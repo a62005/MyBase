@@ -1,2 +1,3 @@
 rootProject.name = "MyBase"
 include ':app'
+include ':common'

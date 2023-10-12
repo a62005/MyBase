@@ -1,4 +1,4 @@
-package com.yilin.mybase.ui.viewholder
+package com.yilin.common.ui.viewholder
 
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding

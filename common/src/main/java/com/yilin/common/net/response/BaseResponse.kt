@@ -1,6 +1,6 @@
-package com.yilin.mybase.net.response
+package com.yilin.common.net.response
 
-import com.yilin.mybase.net.ResultCode
+import com.yilin.common.net.ResultCode
 import org.json.JSONObject
 
 

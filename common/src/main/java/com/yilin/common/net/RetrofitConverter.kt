@@ -1,6 +1,6 @@
-package com.yilin.mybase.net.service
+package com.yilin.common.net
 
-import com.yilin.mybase.utils.JsonParseUtil
+import com.yilin.common.utils.JsonParseUtil
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody
 import okhttp3.RequestBody.Companion.toRequestBody

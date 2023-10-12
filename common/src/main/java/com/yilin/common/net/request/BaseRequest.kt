@@ -1,4 +1,4 @@
-package com.yilin.mybase.net.request
+package com.yilin.common.net.request
 
 import org.json.JSONObject
 import retrofit2.Call

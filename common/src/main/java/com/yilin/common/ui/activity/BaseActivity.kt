@@ -1,4 +1,4 @@
-package com.yilin.mybase.ui.activity
+package com.yilin.common.ui.activity
 
 import android.content.Intent
 import android.content.res.Resources
@@ -10,7 +10,7 @@ import androidx.core.view.WindowCompat
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
-import com.yilin.mybase.R
+import com.yilin.common.R
 
 abstract class BaseActivity<T : ViewBinding> : AppCompatActivity() {
 

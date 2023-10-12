@@ -2,6 +2,7 @@ package com.yilin.mybase.ui.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.FragmentManager
+import com.yilin.common.ui.fragment.BaseBottomSheetFragment
 import com.yilin.mybase.R
 import com.yilin.mybase.databinding.FragmentCalendarNoteAddBinding
 import com.yilin.mybase.viewmodel.CalendarNoteAddViewModel

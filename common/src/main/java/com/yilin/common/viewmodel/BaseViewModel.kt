@@ -1,9 +1,9 @@
-package com.yilin.mybase.viewmodel
+package com.yilin.common.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.yilin.mybase.net.response.BaseResponse
-import com.yilin.mybase.viewmodel.enevt.MyEvent
+import com.yilin.common.enevt.MyEvent
+import com.yilin.common.net.response.BaseResponse
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import org.greenrobot.eventbus.EventBus

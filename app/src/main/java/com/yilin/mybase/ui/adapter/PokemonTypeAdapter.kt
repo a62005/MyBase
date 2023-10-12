@@ -2,6 +2,7 @@ package com.yilin.mybase.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import com.yilin.common.ui.adapter.BaseBindingAdapter
 import com.yilin.mybase.bean.PokemonItemBean
 import com.yilin.mybase.databinding.ItemPokemonTypeBinding
 import com.yilin.mybase.ui.compare.StringCompare

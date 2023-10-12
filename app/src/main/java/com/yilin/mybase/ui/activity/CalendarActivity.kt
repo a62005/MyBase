@@ -3,9 +3,10 @@ package com.yilin.mybase.ui.activity
 import android.view.View
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.SimpleItemAnimator
+import com.yilin.common.ui.activity.BaseActivity
 import com.yilin.mybase.R
 import com.yilin.mybase.databinding.ActivityCalendarBinding
-import com.yilin.mybase.ui.adapter.BaseListAdapter
+import com.yilin.common.ui.adapter.BaseListAdapter
 import com.yilin.mybase.ui.adapter.CalendarNoteAdapter
 import com.yilin.mybase.ui.fragment.CalendarNoteAddFragment
 import com.yilin.mybase.ui.fragment.CalendarSelectorFragment

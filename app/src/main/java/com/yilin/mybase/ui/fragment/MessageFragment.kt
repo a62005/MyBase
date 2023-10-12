@@ -4,9 +4,10 @@ import android.view.View
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.SimpleItemAnimator
+import com.yilin.common.ui.fragment.BaseFragment
 import com.yilin.mybase.R
 import com.yilin.mybase.databinding.FragmentMessageBinding
-import com.yilin.mybase.ui.adapter.BaseListAdapter
+import com.yilin.common.ui.adapter.BaseListAdapter
 import com.yilin.mybase.ui.adapter.MessageAdapter
 import com.yilin.mybase.view.BottomSheetSelector
 import com.yilin.mybase.view.callback.ItemTouchCallback

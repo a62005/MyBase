@@ -2,9 +2,10 @@ package com.yilin.mybase.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import com.yilin.common.ui.adapter.BaseBindingAdapter
 import com.yilin.mybase.databinding.ItemPokemonCategoryBinding
 import com.yilin.mybase.ui.compare.StringCompare
-import com.yilin.mybase.ui.viewholder.BaseVBViewHolder
+import com.yilin.common.ui.viewholder.BaseVBViewHolder
 
 class PokemonCategoryAdapter :
     BaseBindingAdapter<String, BaseVBViewHolder, ItemPokemonCategoryBinding>(

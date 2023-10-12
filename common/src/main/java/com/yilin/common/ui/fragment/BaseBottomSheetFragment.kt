@@ -1,4 +1,4 @@
-package com.yilin.mybase.ui.fragment
+package com.yilin.common.ui.fragment
 
 import android.annotation.SuppressLint
 import android.app.Dialog
@@ -14,7 +14,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
 import androidx.viewbinding.ViewBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import com.yilin.mybase.R
+import com.yilin.common.R
 
 abstract class BaseBottomSheetFragment<T : ViewBinding> : BottomSheetDialogFragment() {
 

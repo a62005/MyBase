@@ -1,5 +1,6 @@
 package com.yilin.mybase.net.request
 
+import com.yilin.common.net.request.BaseRequest
 import com.yilin.mybase.net.service.PokemonService
 import org.json.JSONObject
 import retrofit2.Call

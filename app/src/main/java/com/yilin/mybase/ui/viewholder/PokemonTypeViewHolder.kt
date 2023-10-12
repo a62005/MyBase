@@ -2,6 +2,7 @@ package com.yilin.mybase.ui.viewholder
 
 import android.content.res.ColorStateList
 import androidx.recyclerview.widget.GridLayoutManager
+import com.yilin.common.ui.viewholder.BaseVBViewHolder
 import com.yilin.mybase.bean.PokemonItemBean
 import com.yilin.mybase.databinding.ItemPokemonTypeBinding
 import com.yilin.mybase.ui.adapter.PokemonListAdapter

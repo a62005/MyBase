@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="MyBottomSheetDialog" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="android:windowSoftInputMode">adjustResize</item>
+        <item name="bottomSheetStyle">@style/BottomSheetStyleWrapper</item>
+        <item name="editTextStyle">@style/MyAppTheme.Edittext</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="buttonStyle">@style/MyAppTheme.BaseButton</item>
+    </style>
+
+    <style name="MyBottomSheetSelectorDialog" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/BottomSheetSelectorStyleWrapper</item>
+    </style>
+
+    <style name="BottomSheetSelectorStyleWrapper" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:paddingStart">6dp</item>
+        <item name="android:paddingEnd">6dp</item>
+    </style>
+
+    <style name="BottomSheetStyleWrapper" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/background_bottom_sheet</item>
+    </style>
+
+    <style name="MyAppTheme.Edittext" parent="@style/Widget.AppCompat.EditText">
+        <item name="android:textColorHint">@color/color_edittext_hint</item>
+        <item name="android:background">@drawable/background_edittext</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:paddingBottom">16dp</item>
+        <item name="android:drawablePadding">12dp</item>
+        <item name="android:textCursorDrawable">@drawable/shape_edittext_cursor</item>
+    </style>
+
+    <style name="MyAppTheme.BaseButton" parent="@style/Widget.AppCompat.Button">
+        <item name="android:background">@drawable/selector_button</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingBottom">16dp</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:gravity">center</item>
+    </style>
+</resources>
