@@ -1,7 +1,7 @@
 package com.yilin.mybase.ui.compare
 
 import androidx.recyclerview.widget.DiffUtil
-import com.yilin.mybase.bean.message.MessageBean
+import com.yilin.mybase.bean.MessageBean
 
 class MessageCompare : DiffUtil.ItemCallback<MessageBean>() {
     override fun areItemsTheSame(oldItem: MessageBean, newItem: MessageBean): Boolean {

@@ -2,21 +2,25 @@ package com.yilin.mybase.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.yilin.mybase.bean.message.MessageBean
+import com.yilin.mybase.bean.MessageBean
 import com.yilin.mybase.databinding.ItemMessageBinding
 import com.yilin.mybase.ui.compare.MessageCompare
-import com.yilin.mybase.ui.viewholder.BaseVBViewHolder
+import com.yilin.mybase.ui.viewholder.MessageViewHolder
 
-class MessageAdapter : BaseBindingAdapter<MessageBean, BaseVBViewHolder, ItemMessageBinding>(
-    MessageCompare()
-) {
+class MessageAdapter(onItemClickListener: OnItemClickListener) :
+    BaseBindingAdapter<MessageBean, MessageViewHolder, ItemMessageBinding>(
+        MessageCompare(),
+        onItemClickListener
+    ) {
     override fun convertPlus(
-        holder: BaseVBViewHolder,
+        holder: MessageViewHolder,
         binding: ItemMessageBinding,
         item: MessageBean
     ) {
-        binding.tvContent.text = item.title
-        binding.tvDate.text = item.date
+        holder.init(item)
+        binding.tvDelete.setOnClickListener {
+            onItemClickListener?.onItemClick(this, it, holder.adapterPosition)
+        }
     }
 
     override fun createViewBinding(
@@ -27,7 +31,7 @@ class MessageAdapter : BaseBindingAdapter<MessageBean, BaseVBViewHolder, ItemMes
         return ItemMessageBinding.inflate(inflater, parent, false)
     }
 
-    override fun createViewHolder(binding: ItemMessageBinding, viewType: Int): BaseVBViewHolder {
-        return getBaseViewHolder(binding)
+    override fun createViewHolder(binding: ItemMessageBinding, viewType: Int): MessageViewHolder {
+        return MessageViewHolder(binding)
     }
 }

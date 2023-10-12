@@ -2,14 +2,12 @@ package com.yilin.mybase.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
-import com.yilin.mybase.R
 import com.yilin.mybase.databinding.ItemCalendarSelectorMonthBinding
 import com.yilin.mybase.ui.compare.IntegerCompare
-import com.yilin.mybase.ui.viewholder.BaseVBViewHolder
+import com.yilin.mybase.ui.viewholder.CalendarMonthSelectorViewHolder
 
 class CalendarMonthSelectorAdapter(onItemClickListener: OnItemClickListener) :
-    BaseBindingAdapter<Int, BaseVBViewHolder, ItemCalendarSelectorMonthBinding>(
+    BaseBindingAdapter<Int, CalendarMonthSelectorViewHolder, ItemCalendarSelectorMonthBinding>(
         IntegerCompare(),
         onItemClickListener
     ) {
@@ -18,39 +16,16 @@ class CalendarMonthSelectorAdapter(onItemClickListener: OnItemClickListener) :
     private var selectedYear = 0
 
     override fun convertPlus(
-        holder: BaseVBViewHolder,
+        holder: CalendarMonthSelectorViewHolder,
         binding: ItemCalendarSelectorMonthBinding,
         item: Int
     ) {
         if (defaultYear == selectedYear && item == defaultMonth) {
-            binding.tvTitle.setBackgroundColor(
-                ContextCompat.getColor(
-                    holder.itemView.context,
-                    R.color.color_light_blue
-                )
-            )
-            binding.tvTitle.setTextColor(
-                ContextCompat.getColor(
-                    holder.itemView.context,
-                    R.color.white
-                )
-            )
+            holder.setSelected()
         } else {
-            binding.tvTitle.setBackgroundColor(
-                ContextCompat.getColor(
-                    holder.itemView.context,
-                    R.color.white
-                )
-            )
-            binding.tvTitle.setTextColor(
-                ContextCompat.getColor(
-                    holder.itemView.context,
-                    R.color.black
-                )
-            )
+            holder.setUnselected()
         }
-        val month = "$item${holder.getString(R.string.calendar_month)}"
-        binding.tvTitle.text = month
+        holder.setTitle(item)
     }
 
     override fun createViewBinding(
@@ -64,8 +39,8 @@ class CalendarMonthSelectorAdapter(onItemClickListener: OnItemClickListener) :
     override fun createViewHolder(
         binding: ItemCalendarSelectorMonthBinding,
         viewType: Int
-    ): BaseVBViewHolder {
-        return getBaseViewHolder(binding)
+    ): CalendarMonthSelectorViewHolder {
+        return CalendarMonthSelectorViewHolder(binding)
     }
 
     fun setDefaultMonth(year: Int, month: Int) {

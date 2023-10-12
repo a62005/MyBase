@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.switchMap
 import com.yilin.mybase.bean.CalendarNoteBean
+import com.yilin.mybase.factory.MessageFactory
 import com.yilin.mybase.viewmodel.respository.MainRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -25,7 +26,8 @@ class CalendarViewModel @Inject constructor(private val repository: MainReposito
         _onNoteDateListener.value = dateTime
     }
 
-    fun deleteNote(noteId: Int) {
-        repository.deleteCalendarNote(noteId)
+    fun deleteNote(note: CalendarNoteBean) {
+        repository.deleteCalendarNote(note.id)
+        repository.addMessage(MessageFactory.NoteMessage.REMOVE.getMessage(note))
     }
 }

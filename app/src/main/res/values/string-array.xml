@@ -19,4 +19,9 @@
         <item>五</item>
         <item>六</item>
     </string-array>
+
+    <string-array name="message_more_item">
+        <item>全部已讀</item>
+        <item>全部刪除</item>
+    </string-array>
 </resources>

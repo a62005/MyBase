@@ -2,20 +2,30 @@ package com.yilin.mybase.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.yilin.mybase.bean.PokemonBean
+import com.yilin.mybase.bean.PokemonItemBean
 import com.yilin.mybase.databinding.ItemPokemonBinding
 import com.yilin.mybase.ui.compare.PokemonCompare
 import com.yilin.mybase.ui.viewholder.PokemonViewHolder
 
-class PokemonListAdapter : BaseBindingAdapter<PokemonBean, PokemonViewHolder, ItemPokemonBinding>(
-    PokemonCompare()
-) {
+class PokemonListAdapter(private val onPokemonClickListener: OnPokemonClickListener) :
+    BaseBindingAdapter<PokemonItemBean, PokemonViewHolder, ItemPokemonBinding>(
+        PokemonCompare()
+    ) {
     override fun convertPlus(
         holder: PokemonViewHolder,
         binding: ItemPokemonBinding,
-        item: PokemonBean
+        item: PokemonItemBean
     ) {
         holder.init(item)
+        binding.root.setOnClickListener {
+            onPokemonClickListener.onPokemonClick(item.id)
+        }
+        binding.ivHeart.setOnClickListener {
+            val isFavorite = !item.isFavorite
+            item.isFavorite = isFavorite
+            holder.setFavorite(isFavorite)
+            onPokemonClickListener.onFavoriteClick(item.id, item.name, isFavorite)
+        }
     }
 
     override fun createViewBinding(
@@ -28,5 +38,10 @@ class PokemonListAdapter : BaseBindingAdapter<PokemonBean, PokemonViewHolder, It
 
     override fun createViewHolder(binding: ItemPokemonBinding, viewType: Int): PokemonViewHolder {
         return PokemonViewHolder(binding)
+    }
+
+    interface OnPokemonClickListener {
+        fun onFavoriteClick(id: String, name: String, isFavorite: Boolean)
+        fun onPokemonClick(id: String)
     }
 }

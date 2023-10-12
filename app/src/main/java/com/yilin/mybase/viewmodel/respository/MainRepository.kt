@@ -1,7 +1,7 @@
 package com.yilin.mybase.viewmodel.respository
 
 import com.yilin.mybase.bean.CalendarNoteBean
-import com.yilin.mybase.bean.message.MessageBean
+import com.yilin.mybase.bean.MessageBean
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -21,14 +21,26 @@ class MainRepository @Inject constructor(
         }
     }
 
-    suspend fun getPokemonList() = withContext(ioScope.coroutineContext) {
-        val data = mainLocalSource.getPokemonList()
+    suspend fun getPokemonTypeList() = withContext(ioScope.coroutineContext) {
+        val data = mainLocalSource.getPokemonTypeList()
         data.ifEmpty {
             val resp = mainRemoteSource.getPokemonList()
             resp.pokemonList.apply {
                 mainLocalSource.insert(this)
-            }
+            }.map { it.type }.toSet().toList()
         }
+    }
+
+    suspend fun getPokemonListByType(type: String) = withContext(ioScope.coroutineContext) {
+        mainLocalSource.getPokemonListByType(type)
+    }
+
+    suspend fun getPokemonById(id: String) = withContext(ioScope.coroutineContext) {
+        mainLocalSource.getPokemonById(id)
+    }
+
+    suspend fun getPokemonCount() = withContext(ioScope.coroutineContext) {
+        mainLocalSource.getPokemonCount()
     }
 
     fun updatePokemonFavorite(name: String, isFavorite: Boolean) {
@@ -40,6 +52,8 @@ class MainRepository @Inject constructor(
     suspend fun getMessageList() = withContext(ioScope.coroutineContext) {
         mainLocalSource.getMessageList()
     }
+
+    fun loadMessageList() = mainLocalSource.loadMessageList()
 
     fun loadMessageUnreadCount() = mainLocalSource.loadMessageUnreadCount()
 
@@ -66,6 +80,24 @@ class MainRepository @Inject constructor(
     fun update(item: CalendarNoteBean) {
         ioScope.launch {
             mainLocalSource.update(item)
+        }
+    }
+
+    fun setMessageRead(id: Int) {
+        ioScope.launch {
+            mainLocalSource.setMessageRead(id)
+        }
+    }
+
+    fun deleteMessage() {
+        ioScope.launch {
+            mainLocalSource.deleteMessage()
+        }
+    }
+
+    fun deleteMessage(id: Int) {
+        ioScope.launch {
+            mainLocalSource.deleteMessage(id)
         }
     }
 }

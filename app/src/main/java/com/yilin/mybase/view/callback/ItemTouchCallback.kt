@@ -5,6 +5,9 @@ import android.view.View
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 
+/**
+ * recyclerView item橫移的callback
+ */
 class ItemTouchCallback : SimpleItemTouchHelperCallback() {
 
     private var mCurrentScrollX = 0

@@ -12,12 +12,19 @@ import com.yilin.mybase.databinding.FragmentCalendarSelectorBinding
 import com.yilin.mybase.ui.adapter.BaseListAdapter
 import com.yilin.mybase.ui.adapter.CalendarMonthSelectorAdapter
 
+/***
+ * 選擇月份的彈窗
+ */
 class CalendarSelectorFragment private constructor() : DialogFragment() {
 
     companion object {
         private const val TAG_YEAR = "tag_year"
         private const val TAG_MONTH = "tag_month"
         private const val TAG_Y_POSITION = "tag_y_position"
+
+        /***
+         * 根據當前年月顯示年月
+         */
         fun newInstance(
             manager: FragmentManager,
             year: Int,
@@ -34,7 +41,7 @@ class CalendarSelectorFragment private constructor() : DialogFragment() {
             return f
         }
 
-        private val MONTH_LIST = listOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)
+        private val MONTH_LIST = (1..12).toList()
     }
 
     private lateinit var binding: FragmentCalendarSelectorBinding

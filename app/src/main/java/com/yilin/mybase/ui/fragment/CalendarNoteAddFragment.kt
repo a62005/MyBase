@@ -7,6 +7,10 @@ import com.yilin.mybase.databinding.FragmentCalendarNoteAddBinding
 import com.yilin.mybase.viewmodel.CalendarNoteAddViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
+/***
+ * 新增備忘錄的彈窗, 如果未帶入id則為新增, 反之編輯
+ */
+
 @AndroidEntryPoint
 class CalendarNoteAddFragment private constructor() :
     BaseBottomSheetFragment<FragmentCalendarNoteAddBinding>() {
@@ -16,6 +20,11 @@ class CalendarNoteAddFragment private constructor() :
     companion object {
         private const val TAG_ID = "tag_id"
         private const val TAG_DATE_TIME = "date_time"
+
+        /***
+         * @param id noteId, 如果未帶入則判斷為新增
+         * @param dateTime calendarView選擇的時間
+         */
         fun newInstance(manager: FragmentManager, id: Int? = null, dateTime: Long) {
             val bundle = Bundle()
             bundle.putInt(TAG_ID, id ?: -1)

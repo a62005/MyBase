@@ -4,7 +4,7 @@ import com.google.gson.Gson
 import com.yilin.mybase.MyApp
 import com.yilin.mybase.bean.CalendarNoteBean
 import com.yilin.mybase.bean.PokemonBean
-import com.yilin.mybase.bean.message.MessageBean
+import com.yilin.mybase.bean.MessageBean
 import com.yilin.mybase.database.MainRoomDao
 import com.yilin.mybase.manager.SPManager
 import javax.inject.Singleton
@@ -17,7 +17,11 @@ class MainLocalSource(private val mainDao: MainRoomDao) {
     private val gson: Gson by lazy { MyApp.instance.gson }
 
     fun insert(pokemonList: List<PokemonBean>) {
-        mainDao.insert(pokemonList)
+        pokemonList.onEach {
+            it.type = it.types.first()
+        }.apply {
+            mainDao.insert(this)
+        }
     }
 
     fun insert(item: MessageBean) {
@@ -28,7 +32,13 @@ class MainLocalSource(private val mainDao: MainRoomDao) {
         return mainDao.insert(item)
     }
 
-    fun getPokemonList() = mainDao.getPokemonList()
+    fun getPokemonTypeList() = mainDao.getPokemonTypeList()
+
+    fun getPokemonListByType(type: String) = mainDao.getPokemonListByType(type)
+
+    fun getPokemonById(id: String) = mainDao.getPokemonById(id)
+
+    fun getPokemonCount() = mainDao.getPokemonCount()
 
     fun updatePokemonFavorite(name: String, isFavorite: Boolean) =
         mainDao.updatePokemonFavorite(name, isFavorite)
@@ -36,6 +46,8 @@ class MainLocalSource(private val mainDao: MainRoomDao) {
     fun loadMessageUnreadCount() = mainDao.loadMessageUnreadCount()
 
     fun getMessageList() = mainDao.getMessageList()
+
+    fun loadMessageList() = mainDao.loadMessageList()
 
     fun getCalendarNote(id: Int) = mainDao.getCalendarNote(id)
 
@@ -47,8 +59,20 @@ class MainLocalSource(private val mainDao: MainRoomDao) {
         mainDao.update(item)
     }
 
+    fun setMessageRead(id: Int) {
+        mainDao.setMessageRead(id)
+    }
+
     fun delete(id: Int) {
         mainDao.delete(id)
+    }
+
+    fun deleteMessage() {
+        mainDao.deleteMessage()
+    }
+
+    fun deleteMessage(id: Int) {
+        mainDao.deleteMessage(id)
     }
 
 }
