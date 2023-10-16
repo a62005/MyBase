@@ -1,5 +1,6 @@
 package com.yilin.common.ui.fragment
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -22,14 +23,9 @@ abstract class BaseFragment<T : ViewBinding> : Fragment() {
     protected val binding get() = _binding!!
     private var mScrollY: Int? = null
 
-    override fun onResume() {
-        super.onResume()
-        Log.i(TAG, this.javaClass.simpleName + " onResume")
-    }
-
-    override fun onHiddenChanged(hidden: Boolean) {
-        super.onHiddenChanged(hidden)
-        Log.i(TAG, this.javaClass.simpleName + " onHiddenChanged " + hidden)
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        Log.i(TAG, this.javaClass.simpleName + " onAttach")
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,6 +53,51 @@ abstract class BaseFragment<T : ViewBinding> : Fragment() {
         Log.i(TAG, this.javaClass.simpleName + " onViewCreated")
     }
 
+    override fun onStart() {
+        super.onStart()
+        Log.i(TAG, this.javaClass.simpleName + " onStart")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.i(TAG, this.javaClass.simpleName + " onResume")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.i(TAG, this.javaClass.simpleName + " onPause")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.i(TAG, this.javaClass.simpleName + " onStop")
+    }
+
+    override fun onDestroyView() {
+        _binding = null
+        super.onDestroyView()
+        Log.i(TAG, this.javaClass.simpleName + " onDestroyView ")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.i(TAG, this.javaClass.simpleName + " onDestroy")
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        Log.i(TAG, this.javaClass.simpleName + " onDetach")
+    }
+
+    override fun onHiddenChanged(hidden: Boolean) {
+        super.onHiddenChanged(hidden)
+        Log.i(TAG, this.javaClass.simpleName + " onHiddenChanged " + hidden)
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        Log.i(TAG, this.javaClass.simpleName + " onSaveInstanceState")
+    }
+
     private fun setScrollView() {
         binding.root.let { view ->
             if (view is NestedScrollView) {
@@ -81,41 +122,6 @@ abstract class BaseFragment<T : ViewBinding> : Fragment() {
     protected abstract fun initViewData()
 
     protected open fun initOnClick() {}
-
-    override fun onDetach() {
-        super.onDetach()
-        Log.i(TAG, this.javaClass.simpleName + " onDetach")
-    }
-
-    override fun onSaveInstanceState(outState: Bundle) {
-        Log.i(TAG, this.javaClass.simpleName + " onSaveInstanceState")
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.i(TAG, this.javaClass.simpleName + " onDestroy")
-    }
-
-    override fun onPause() {
-        super.onPause()
-        Log.i(TAG, this.javaClass.simpleName + " onPause")
-    }
-
-    override fun onStart() {
-        super.onStart()
-        Log.i(TAG, this.javaClass.simpleName + " onStart")
-    }
-
-    override fun onStop() {
-        super.onStop()
-        Log.i(TAG, this.javaClass.simpleName + " onStop")
-    }
-
-    override fun onDestroyView() {
-        _binding = null
-        super.onDestroyView()
-        Log.i(TAG, this.javaClass.simpleName + " onDestroyView ")
-    }
 
     protected inline fun <reified VM : ViewModel> getViewModel(owner: ViewModelStoreOwner): VM {
         return ViewModelProvider(owner)[VM::class.java]

@@ -22,46 +22,37 @@ abstract class BaseActivity<T : ViewBinding> : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.i(TAG, "onCreate")
         setContentView(binding.root)
         initLayoutView()
         initOnClick()
         initViewData()
         setStatusBar()
-        Log.i(TAG, "class on create " + this.javaClass.simpleName)
+        Log.i(TAG, "class on onCreate " + this.javaClass.simpleName)
     }
 
-    private fun setStatusBar() {
-        window.statusBarColor = ContextCompat.getColor(this, R.color.white)
-        WindowCompat.getInsetsController(window, binding.root).isAppearanceLightStatusBars = true
+    override fun onStart() {
+        super.onStart()
+        Log.i(TAG, "class on onStart " + this.javaClass.simpleName)
     }
-
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<String>,
-        grantResults: IntArray
-    ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-    }
-
-    protected abstract fun getViewBinding(): T
-
-
-    protected abstract fun initLayoutView()
-
-    protected abstract fun initViewData()
-
-    protected open fun initOnClick() {}
 
     override fun onResume() {
         super.onResume()
         Log.i(TAG, "class on onResume " + this.javaClass.simpleName)
     }
 
-    override fun finish() {
-        super.finish()
-        Log.i(TAG, "class on finish " + this.javaClass.simpleName)
-        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
+    override fun onPause() {
+        super.onPause()
+        Log.i(TAG, "class on onPause " + this.javaClass.simpleName)
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        Log.i(TAG, "class on onRestart " + this.javaClass.simpleName)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.i(TAG, "class on onStop " + this.javaClass.simpleName)
     }
 
     override fun onDestroy() {
@@ -69,8 +60,29 @@ abstract class BaseActivity<T : ViewBinding> : AppCompatActivity() {
         Log.i(TAG, "class on onDestroy " + this.javaClass.simpleName)
     }
 
+
+    private fun setStatusBar() {
+        window.statusBarColor = ContextCompat.getColor(this, R.color.white)
+        WindowCompat.getInsetsController(window, binding.root).isAppearanceLightStatusBars = true
+    }
+
+    protected abstract fun getViewBinding(): T
+
+    protected abstract fun initLayoutView()
+
+    protected abstract fun initViewData()
+
+    protected open fun initOnClick() {}
+
+    override fun finish() {
+        super.finish()
+        Log.i(TAG, "class on finish " + this.javaClass.simpleName)
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
+    }
+
     override fun startActivity(intent: Intent?) {
         super.startActivity(intent)
+        Log.i(TAG, "class on startActivity " + this.javaClass.simpleName)
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
     }
 
