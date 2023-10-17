@@ -1,5 +1,6 @@
 package com.yilin.common.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.yilin.common.enevt.MyEvent
@@ -12,7 +13,9 @@ import org.greenrobot.eventbus.ThreadMode
 
 abstract class BaseViewModel : ViewModel() {
 
-    private var eventBus: EventBus? = null
+    companion object {
+        private const val TAG = "BaseViewModel"
+    }
 
     protected fun sendApi(api: suspend () -> BaseResponse, handle: (BaseResponse) -> Unit) {
         val response = viewModelScope.async { api() }
@@ -22,20 +25,24 @@ abstract class BaseViewModel : ViewModel() {
     }
 
     @Subscribe(threadMode = ThreadMode.BACKGROUND)
-    protected open fun onEvent(event: MyEvent) {
+    fun onEvent(event: MyEvent) {
+        Log.i(TAG, "Receive Event : $event")
+        onEventListener(event)
+    }
+
+    protected open fun onEventListener(event: MyEvent) {
 
     }
 
     protected fun registerEvent() {
-        EventBus.getDefault().apply {
-            eventBus = this
-            register(this@BaseViewModel)
+        EventBus.getDefault().let { bus ->
+            if (!bus.isRegistered(this)) {
+                bus.register(this)
+                addCloseable {
+                    bus.unregister(this)
+                }
+            }
         }
-    }
-
-    override fun onCleared() {
-        super.onCleared()
-        eventBus?.unregister(this)
     }
 }
 
