@@ -25,7 +25,7 @@ class MainRepository @Inject constructor(
         val data = mainLocalSource.getPokemonTypeList()
         data.ifEmpty {
             val resp = mainRemoteSource.getPokemonList()
-            resp.pokemonList.apply {
+            resp.apply {
                 mainLocalSource.insert(this)
             }.map { it.type }.toSet().toList()
         }

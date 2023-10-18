@@ -17,7 +17,7 @@ abstract class BaseViewModel : ViewModel() {
         private const val TAG = "BaseViewModel"
     }
 
-    protected fun sendApi(api: suspend () -> BaseResponse, handle: (BaseResponse) -> Unit) {
+    protected fun sendApi(api: suspend () -> BaseResponse<*>, handle: (BaseResponse<*>) -> Unit) {
         val response = viewModelScope.async { api() }
         viewModelScope.launch {
             handle(response.await())

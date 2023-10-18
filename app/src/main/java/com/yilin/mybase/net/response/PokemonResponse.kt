@@ -5,7 +5,7 @@ import com.yilin.common.net.response.BaseResponse
 import com.yilin.mybase.MyApp
 import com.yilin.mybase.bean.PokemonBean
 
-class PokemonResponse(response: BaseResponse) : BaseResponse(response) {
+class PokemonResponse(response: BaseResponse<String>) : BaseResponse<String>(response) {
 
     val pokemonList: List<PokemonBean>
         get() {

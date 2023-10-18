@@ -3,6 +3,7 @@ package com.yilin.common.net
 import android.util.Log
 import com.yilin.common.net.request.BaseRequest
 import com.yilin.common.net.response.BaseResponse
+import com.yilin.common.net.service.BaseService
 import kotlinx.coroutines.suspendCancellableCoroutine
 import okhttp3.HttpUrl.Companion.toHttpUrl
 import okhttp3.OkHttpClient
@@ -10,6 +11,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.scalars.ScalarsConverterFactory
 import java.util.concurrent.TimeUnit
 
@@ -24,12 +26,12 @@ class RequestManager private constructor() {
     /***
      *  請求佇列，避免重複發送請求
      */
-    private val requestQueue = hashMapOf<String, BaseRequest<*>>()
+    private val requestQueue = hashMapOf<String, BaseRequest<*, *>>()
 
     /***
      *  apiService，把不同的service存起來
      */
-    private val apiService = hashMapOf<String, Any>()
+    private val apiService = hashMapOf<String, BaseService>()
 
     private val mOkHttpClient =
         OkHttpClient().newBuilder()
@@ -44,7 +46,7 @@ class RequestManager private constructor() {
     /***
      *  對外唯一接口，須實作BaseRequest
      */
-    suspend fun sendRequest(request: BaseRequest<*>): BaseResponse {
+    suspend fun <T> sendRequest(request: BaseRequest<*, T>): BaseResponse<T> {
         val tag = request.tag
         if (requestQueue.containsKey(tag)) {
             return failedCallBack("重複發送請求")
@@ -55,24 +57,25 @@ class RequestManager private constructor() {
         Log.i(TAG, " method= ${call.request().method}")
         Log.i(TAG, " url= ${call.request().url.toUrl()}")
         return suspendCancellableCoroutine {
-            call.enqueue(object : Callback<String> {
+            call.enqueue(object : Callback<T> {
                 override fun onResponse(
-                    call: Call<String>,
-                    response: Response<String>
+                    call: Call<T>,
+                    response: Response<T>
                 ) {
                     requestQueue.remove(tag)
-                    if (response.isSuccessful) {
+                    if (response.isSuccessful && response.body() != null) {
+                        val body = response.body()!!
                         Log.i(TAG, "response successCallBack----->")
-                        val string = response.body().toString()
+                        val string = body.toString()
                         Log.i(TAG, "response ----->$string")
-                        it.resumeWith(Result.success(successCallBack(string)))
+                        it.resumeWith(Result.success(successCallBack(body, "請求成功")))
                     } else {
                         Log.i(TAG, "response Exception----->" + response.code())
                         it.resumeWith(Result.success(failedCallBack("服務器錯誤")))
                     }
                 }
 
-                override fun onFailure(call: Call<String>, t: Throwable) {
+                override fun onFailure(call: Call<T>, t: Throwable) {
                     Log.i(TAG, t.toString())
                     requestQueue.remove(tag)
                     it.resumeWith(Result.success(failedCallBack("訪問失敗")))
@@ -106,23 +109,24 @@ class RequestManager private constructor() {
                     }
                 }
                 .addConverterFactory(ScalarsConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
                 .addConverterFactory(RetrofitConverter())
                 .build()
         }
     }
 
-    private fun getService(request: BaseRequest<*>): Any {
+    private fun getService(request: BaseRequest<*, *>): BaseService {
         checkBaseUrl(request.baseUrl)
         val service = request.getServiceClass()
         val apiKey = service.javaClass.simpleName
         if (!apiService.containsKey(apiKey)) {
-            apiService[apiKey] = mRetrofit!!.create(service) as Any
+            apiService[apiKey] = mRetrofit!!.create(service)
         }
         return apiService[apiKey]!!
     }
 
-    private fun failedCallBack(msg: String) = BaseResponse(ResultCode.RESULT_CODE_FAIL, msg)
+    private fun <T> failedCallBack(msg: String) = BaseResponse<T>(ResultCode.RESULT_CODE_FAIL, msg)
 
-    private fun successCallBack(msg: String) = BaseResponse(msg, ResultCode.RESULT_CODE_SUCCESS)
+    private fun <T> successCallBack(data: T, msg: String) = BaseResponse(data, message = msg, ResultCode.RESULT_CODE_SUCCESS)
 
 }

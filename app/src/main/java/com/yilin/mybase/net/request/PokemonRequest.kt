@@ -1,11 +1,12 @@
 package com.yilin.mybase.net.request
 
 import com.yilin.common.net.request.BaseRequest
+import com.yilin.mybase.bean.PokemonBean
 import com.yilin.mybase.net.service.PokemonService
 import org.json.JSONObject
 import retrofit2.Call
 
-class PokemonRequest : BaseRequest<PokemonService>() {
+class PokemonRequest : BaseRequest<PokemonService, List<PokemonBean>>() {
 
     override val baseUrl: String
         get() = "https://gist.githubusercontent.com/"
@@ -17,7 +18,7 @@ class PokemonRequest : BaseRequest<PokemonService>() {
         return PokemonService::class.java
     }
 
-    override suspend fun getServiceMethod(clazz: PokemonService): Call<String> {
+    override suspend fun getServiceMethod(clazz: PokemonService): Call<List<PokemonBean>> {
         return clazz.getPokemonList()
     }
 }
