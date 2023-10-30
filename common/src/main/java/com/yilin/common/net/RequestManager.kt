@@ -118,7 +118,7 @@ class RequestManager private constructor() {
     private fun getService(request: BaseRequest<*, *>): BaseService {
         checkBaseUrl(request.baseUrl)
         val service = request.getServiceClass()
-        val apiKey = service.javaClass.simpleName
+        val apiKey = service.name
         if (!apiService.containsKey(apiKey)) {
             apiService[apiKey] = mRetrofit!!.create(service)
         }
